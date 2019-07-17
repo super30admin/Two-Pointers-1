@@ -1,12 +1,12 @@
 /**
  * Idea: 
- * 1. Sort the array. 
- * 2. Iterate with two loops and check if sum of 2 elements = - third element.
- * 3. If found check if the result doesn't contain the same list of int and insert.
+ * 1. Sort the array. Two loops take first element as -(val).
+ * 2. Iterate with start and end pointer and check if sum of start+end elements = - (first) element. 
+ * 3. Move start and end based on value of sum. If found check if the result doesn't contain the same triplet and insert.
  * 
  * Time Compleity: O(n^2)
  * Space Complexity: O(1) - no extra space otehr than result list
- * Leetcode: No - TLE
+ * Leetcode: Yes
  */
 
 import java.util.*;
@@ -15,6 +15,7 @@ class ThreeSum {
      
     public List<List<Integer>> findTriplets(int[] nums){
         List<List<Integer>> result = new ArrayList<>();
+        HashSet<List<Integer>> hset = new HashSet<>();
         Arrays.sort(nums);
         for (int i = 0; i <nums.length ; i++) {
             int a = nums[i];
@@ -27,8 +28,10 @@ class ThreeSum {
                 if(tempSum==sum){
                     List<Integer> temp = new ArrayList<>();
                     temp.add(a); temp.add(nums[start]);temp.add(nums[end]);
-                    if(!result.contains(temp))
+                    if(!hset.contains(temp)){
                         result.add(temp);
+                        hset.add(temp);
+                    }
                     start++;
 
                 }else if(tempSum<sum)
