@@ -17,8 +17,25 @@ public class containerWithMostWater {
         }
         return max;
     }
+    //TWO POINTER APPROACH
+    // Time Complexity :O(n) --> beacuse of for loop
+    // Space Complexity :1
+    // 1 . Use two pointers start and end for starting and ending points of array. Calculate area.
+    // 2 . For next step , since we are reducing width , we need to maximize height . So Update lower value of start/end to next/previous value accordingly.
+    // 3 . For each step calculate area and update max area .
+    public static int maxArea2(int[] height){
+        int max = 0;
+        int start = 0,end = height.length-1;
+        while(start<end){
+            int area = Math.min(height[start],height[end])*(end-start);
+            max = Math.max(max,area);
+            if(height[start]<height[end]) start++;
+            else end--;
+        }
+        return  max;
+    }
     public static void main(String[] args) {
         int [] height = {1,8,6,2,5,4,8,3,7};
-        System.out.println(maxArea(height));
+        System.out.println(maxArea2(height));
     }
 }
