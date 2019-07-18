@@ -5,18 +5,13 @@ class Solution {
         {
             if(nums[p]==0)
             {
-                int temp=nums[p];
-                nums[p]=nums[x];
-                nums[x]=temp;
-                x++;
-                p++;
+                nums[p++]=nums[x];
+                nums[x++]=0;
             }
             else if(nums[p]==2)
             {
-                int temp=nums[p];
                 nums[p]=nums[y];
-                nums[y]=temp;
-                y--;
+                nums[y--]=2;
             }
             else{p++;}
         }
