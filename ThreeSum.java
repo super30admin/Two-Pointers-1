@@ -1,8 +1,8 @@
 /**
  * Idea: 
- * 1. Sort the array. Two loops take first element as -(val).
- * 2. Iterate with start and end pointer and check if sum of start+end elements = - (first) element. 
- * 3. Move start and end based on value of sum. If found check if the result doesn't contain the same triplet and insert.
+ * 1. Sort the array. 
+ * 2. For each element Iterate with remaining array with 2 pointers (low and high) and check if sum of 3 elements is 0.  
+ * 3. Skip sum calculation based on sum value. Attend to edge cases to avoid duplicates.
  * 
  * Time Compleity: O(n^2)
  * Space Complexity: O(1) - no extra space otehr than result list
@@ -42,10 +42,64 @@ class ThreeSum {
         }
         return result;
     }
+    
+    
+    public List<List<Integer>> threeSum(int[] nums) {
+
+        List<List<Integer>> result = new ArrayList<>();
+        if(nums.length < 3) return result;
+
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length-2;i++){
+
+            int low = i+1;
+            int high = nums.length-1;
+            
+            //base edge case
+            if(i > 0 && nums[i] == nums[i-1]){ continue;}
+                
+                while(low < high){
+                
+                    int sum = nums[i] + nums[low] + nums[high];
+                    //case 1
+                    if(sum == 0){
+                        List<Integer> temp = new ArrayList<>();
+                        temp.add(nums[i]);temp.add(nums[low]);temp.add(nums[high]);
+                        result.add(temp);
+                        low++;high--;
+                        //low edge case
+                        while(low < high){
+                            if(nums[low] == nums[low-1]){
+                                low++;
+                            }
+                            else break;
+                        }
+    
+                        //high edge case
+                        while(low < high){
+                            if(nums[high] == nums[high+1]){
+                                high--;                                
+                            }
+                            else break;
+                        }
+                    }
+                    //case 2
+                    else if(sum < 0){
+                        low++;
+                    }
+                    //case 3
+                    else{
+                        high--;
+                    }
+                }
+            }
+        return result;        
+    }
+    
     public static void main(String[] args){
         System.out.println("Three Sum");
         ThreeSum obj = new ThreeSum();
         int[] nums = {-1, 0, 1, 2, -1, -4};
-        System.out.println(obj.findTriplets(nums));
+        System.out.println(obj.threeSum(nums));
     }
 }
