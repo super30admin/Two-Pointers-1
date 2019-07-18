@@ -30,10 +30,35 @@ public class sortColors {
             start++;
         }
     }
+    //TWO POINTER APPROACH
+    // Time Complexity :O(n) --> beacuse of while loop
+    // Space Complexity :1
+    // 1 . Have 2 pointers start and end . Start from index 0.
+    // 2 . If value at index i is 0 then swap start and mid values and move mid to next element . 
+    // 3.  If value is 2 then swap end and mid and change end by end-1 . If value 1 then move mid 1 step next so that all 0's will be at start , 2's at end .  
+    public static void sortColors2(int[] nums){
+        int start = 0,mid = 0,end = nums.length-1;
+        while(mid<=end){
+            if(nums[mid]==0){
+                swap(nums,start++,mid++);
+            }
+            else if(nums[mid] == 2){
+                swap(nums,mid++,end--);
+            }
+            else
+                mid++;
+        }
+    }
+
+    private static void swap(int[] nums,int i,int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
 
     public static void main(String[] args) {
         int[] nums = {2,0,2,1,1,0};
-        sortColors(nums);
+        sortColors2(nums);
         for(Integer i:nums)
             System.out.print(i+"  " );
     }
