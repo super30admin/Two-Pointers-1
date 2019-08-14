@@ -1,0 +1,31 @@
+// time complexity = O(n^2)
+// space complexity = O(n)
+// soln executed on leet code
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> res=new ArrayList<>();
+        HashSet<List<Integer>> h1=new HashSet();
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length-2;i++)
+            for(int j=i+1,k=nums.length-1;j<k ;j++)
+                {
+                int sum=nums[i]+nums[j]+nums[k];
+                    if(sum==0) // if sum equal 0 add this triplet to a list
+                    {
+                        List<Integer> l1=new ArrayList<>();
+                        int max=Math.max(nums[i],Math.max(nums[j],nums[k]));
+                        int min=Math.min(nums[i],Math.min(nums[j],nums[k]));
+                        l1.add(max);
+                        l1.add(min);
+                        l1.add(sum-max-min);
+                        if(h1.add(l1))  // check if the list alresdy present in hash set if yes skip it from result list
+                            res.add(l1);
+                    }
+                    else if(sum>0)
+                    {
+                        k--; j--;   // if sum is more we take previous of last element as it is a sorted array
+                    }
+                }
+        return res;
+    }
+}
