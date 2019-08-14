@@ -1,30 +1,33 @@
-// Time Complexity :O[1]
-// Space Complexity : O[N]
-// Did this code successfully run on Leetcode : Yes
-// Any problem you faced while coding this : Trying to solve the problem without the use of sort statement
+// Time Complexity :O[N^3]
+// Space Complexity : O[1]
+// Did this code successfully run on Leetcode : Didn't try on Leetcode
+// Any problem you faced while coding this : Trying to find the optimum solution, provided the brute force solution
 // Your code here along with comments explaining your approach
-class Solution {
-    public void sortColors(int[] nums) {
-        int lo = 0, mid = 0, high = nums.length -1;
-        while(mid<=high){
-            switch(nums[mid]){
-                case 0:
-                    int temp = nums[lo];
-                    nums[lo] = nums[mid];
-                    nums[mid] = temp;
-                    lo++; mid++;
-                    break;
-                case 1:
-                    mid++;
-                    break;
-                case 2:
-                    int t = nums[high];
-                    nums[high] = nums[mid];
-                    nums[mid] = t;
-                    high--;
-                    break;
-            }
-        }
-    }
-}
-        
+class num{ 
+static void Triplets(int[] arr, int n) 
+{ 
+    boolean found = true; 
+    for (int i=0; i<n-2; i++) 
+    { 
+        for (int j=i+1; j<n-1; j++) 
+        { 
+            for (int k=j+1; k<n; k++) 
+            { 
+                if (arr[i]+arr[j]+arr[k] == 0) 
+                { 
+                    System.out.print(arr[i]); 
+                    System.out.print(" "); 
+                    System.out.print(arr[j]); 
+                    System.out.print(" "); 
+                    System.out.print(arr[k]); 
+                    System.out.print("\n"); 
+                    found = true; 
+                } 
+            } 
+        } 
+    } 
+  
+    if (found == false) 
+        System.out.println("No triplets exist "); 
+  
+} 
