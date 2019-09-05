@@ -1,3 +1,12 @@
+# Time Complexity : O(n^2) 
+# Space Complexity : O(n) 
+# Did this code successfully run on Leetcode : Yes
+# Three line explanation of solution in plain english:
+# - Sort the nums. Initialize answer as set.
+# - Run loop for every element except last two, Assign left and right index. 
+# - Run while loop till left is less than right. Compare sum with zero and shrink left and right boundry accordingly.
+
+# Your code here along with comments explaining your approach
 class Solution:
     def threeSum(self, nums):
         """
