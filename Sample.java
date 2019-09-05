@@ -1,3 +1,5 @@
+Problem-2
+---------
 // Time Complexity :  O(n2)
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode : Yes
@@ -39,4 +41,32 @@ class Solution {
         return l;
     }
     
+}
+
+Problem-3
+---------
+// Time Complexity :  O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+class Solution {
+    public int maxArea(int[] height) {
+        int i=0;
+        int j=height.length-1;
+        int max=0;
+        while(i<j){
+            int area = (j-i)*(Math.min(height[i],height[j]));
+            max = Math.max(max,area);
+            if(height[i]>height[j]){
+                j--;
+            }
+            else{
+                i++;
+            }
+        }
+        return max;
+    }
 }
