@@ -10,7 +10,7 @@
  * take care to slide over dups so as to not add duplicate triplets inside our
  * result.
  * 
- * Time Complexity: O(nlgn) 
+ * Time Complexity: O(n^2) 
  * Space Complexty: O(1) constant
  * 
  * Leetcode Result:
