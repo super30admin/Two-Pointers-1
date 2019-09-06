@@ -3,14 +3,14 @@
 //Space complexity O(1)
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-     //sort the given array 
+     //sort the given array for direction 
         Arrays.sort(nums);
         //Initialise the result list of list
         List<List<Integer>> list = new ArrayList<List<Integer>>();
         //Iterate over the array such that index starts from 0 to length-2 as l = i+1 and to avoid out of index situation
         for(int i =0; i<nums.length-2; i++)
         {
-            if(i>0 && (nums[i]==nums[i-1])) //to avoid duplicates
+            if(i>0 && (nums[i]==nums[i-1])) //to avoid duplicates to skip the duplicate elements
                 continue;
             //left index
             int l = i+1;
@@ -27,8 +27,9 @@ class Solution {
                     //increment left pointer and decrement right pointer
                     l++;
                     r--;
-                    //to avoid duplicate 
+                    //to avoid duplicate we increment the left pointer to skip those duplicate no
                     while(l<r && nums[l] == nums[l-1]) l++;
+                    //to avoid duplicate we decrement the right pointer to skip those duplicate no
                     while(l<r && nums[r] == nums[r+1]) r--;
                 }
                 else 
