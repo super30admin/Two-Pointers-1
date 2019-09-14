@@ -30,7 +30,7 @@ public class ThreeSum {
             if (p > 0 && nums[p] == nums[p - 1]) {
                 continue;
             }
-
+            
             q = p + 1;
             r = nums.length - 1;
 

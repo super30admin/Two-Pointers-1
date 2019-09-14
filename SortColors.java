@@ -13,9 +13,49 @@
  * We can consider this instace to be a special case of the above described situation.
  * In a single pass we would be able to sort the given array.
  * 
- * Inplace and Linear Time Algorithm
+ * >>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ * This was initial idea, but based on the logic discussed, I was able to develop the below logic.
  * 
+ * Loop Invariant:
+ * 
+ * A[0 .... i] A[i+1 .... j] A[j+1 .... k-1] A[k .... n-1] 
+ *   0 ...  0    1 ...    1    ? ?    ... x    2 ...    2
+ * 
+ * 0 .. i : contains 0
+ * i+1 .. j: contains 1
+ * j+1 .. k-1: unprocessed, k-1 currently being processed
+ * k .. n-1: contains 2
+ * 
+ * Space Complexity: O(1)
+ * Time Complexity: O(n)
+ * 
+ * Leetcode Attempts: 2
+ * 
+ * Leetcode Results:
+ * Runtime: 0 ms, faster than 100.00% of Java online submissions for Sort Colors.
+ * Memory Usage: 35.4 MB, less than 99.21% of Java online submissions for Sort Colors.  
+ *  
  */
-public class SortColors {
-
+class Solution {
+    public void sortColors(int[] nums) {
+        int n = nums.length;
+        int i = -1, j = -1, k = n;
+        while(k - j - 1 > 0) { // unprocessed section has elements
+            if(nums[k-1] == 2) {
+                k--;
+            } else if(nums[k-1] == 1) {
+                int temp = nums[j+1];
+                nums[j+1] = nums[k-1];
+                nums[k-1] = temp;
+                j++;
+            } else {
+                int temp = nums[k-1];
+                nums[k-1] = nums[j+1];
+                nums[j+1] = nums[i+1];
+                nums[i+1] = temp;
+                i++;
+                j++;
+            }
+        }
+    }
 }
