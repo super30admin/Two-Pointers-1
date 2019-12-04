@@ -1,6 +1,6 @@
 import java.util.*;
 //	Time:  O(n^2) 
-//	Space O(1) no dp matrix
+//	Space O(n) extra set 
 //	LeetCode: yes
 public class threeSum {
 
@@ -9,7 +9,7 @@ public class threeSum {
 		if(nums.length==0) return new ArrayList<>(res);
 		Arrays.sort(nums);
 		for(int i=0; i<nums.length-2;i++){
-			int j =i+1;
+			int j =i+1;	
 			int  k = nums.length-1;
 			while(j<k){
 				int sum = nums[i]+nums[j]+nums[k];
