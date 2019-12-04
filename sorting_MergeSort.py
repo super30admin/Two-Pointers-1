@@ -1,3 +1,13 @@
+# Merge Sorting
+
+# Time Complexity : O(nlogn)
+# Space Complexity : 
+# Did this code successfully run on Leetcode : yes
+# Any problem you faced while coding this : None
+
+
+// Your code here along with comments explaining your approach
+
 class Solution:
     def sortColors(self, nums):
         
