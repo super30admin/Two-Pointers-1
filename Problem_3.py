@@ -3,14 +3,14 @@
 # Memory Complexity: O(1)
 
 '''
-Initialized two pointers left at 0 and right at len(nums)-1.
+1. Initialized two pointers left at 0 and right at len(nums)-1.
 
-Considering left and right as extremes, the area between them is calculated by multiplying distance between left & right with 
-minimum value of nums[left] and nums[right]
+2. Considering left and right as extremes, the area between them is calculated by multiplying distance between left & right with 
+   minimum value of nums[left] and nums[right]
 
-At each iteration, the present area is compared with past maximum area and the maximum area is updated if required.
+3. At each iteration, the present area is compared with past maximum area and the maximum area is updated if required.
 
-At each iteration, minimum of nums[left] and nums[right] is retarded as we need the maximum area.
+4. At each iteration, minimum of nums[left] and nums[right] is retarded as we need the maximum area.
 '''
 
 class Solution:
