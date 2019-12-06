@@ -1,3 +1,8 @@
+# Time Complexity : O(n**2)
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this : Unique values in result list
+
 class Solution(object):
     def threeSum(self, nums):
         """
