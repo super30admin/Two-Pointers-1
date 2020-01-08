@@ -1,4 +1,12 @@
 package com.exmaple.problems;
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+ // Any problem you faced while coding this :
+
+
+// Your code here along with comments explaining your approach
+//Two Pointer Approach is utilized to solve this problem..
 
 public class ContainerMostWater {
 	public int maxArea(int[] height) {
