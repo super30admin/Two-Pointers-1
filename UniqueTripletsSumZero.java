@@ -56,7 +56,6 @@ public class UniqueTripletsSumZero {
 			int x = nums[i];
 			while (l < r) {
 				if (x + nums[l] + nums[r] == 0) {
-					// print elements if it's sum is zero
 					String str = new StringBuffer().append(nums[i]).append(":").append(nums[l]).append(":")
 							.append(nums[r]).toString();
 					if (!set.contains(str)) {
@@ -70,13 +69,8 @@ public class UniqueTripletsSumZero {
 					l++;
 					r--;
 				}
-				// If sum of three elements is less
-				// than zero then increment in left
 				else if (x + nums[l] + nums[r] < 0)
 					l++;
-
-				// if sum is greater than zero than
-				// decrement in right side
 				else
 					r--;
 			}
