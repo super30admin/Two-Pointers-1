@@ -1,0 +1,77 @@
+//Time: O(n)
+//Space : O(1)
+//Using Count technique
+class Solution {
+    public void sortColors(int[] nums) {
+        if(nums==null || nums.length==0) return;
+        int zero=0,one=0,two=0;
+        //count 0,1s,2s
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]==0)
+                zero++;
+            else if(nums[i]==1)
+                one++;
+            else
+                two++;
+        }
+        //place them in a sequence in nums array
+        for(int i=0;i<nums.length;i++)
+        {
+            if(zero!=0) 
+            {
+               nums[i]=0;
+                zero--; 
+            }
+            else if(one!=0 && zero==0)
+            {
+                nums[i]=1;
+                one--;       
+            }
+             else if(two!=0 && one==0 && zero==0)
+            {
+                nums[i]=2;
+                two--;
+            }        
+        }
+    }
+}
+
+//Time: O(n)
+//Space : O(1)
+class Solution {
+    public void sortColors(int[] nums) {
+        int l=0,h=nums.length-1,m=0;
+      
+        //mid should be les sthan equals high
+            while(m<=h)
+            {
+            //case 1: if number is 0
+            if(nums[m]==0)
+            {
+              swap(nums,l,m);
+                l++;
+                m++;      
+            }
+                 //case 2: if number is 1, check m<=h since we are increasing m in previous case to avoid out of bound
+              if(m<=h && nums[m]==1)
+            {
+                m++;
+            }
+                //Case 3: when number is 2, check m<=h since we are increasing m in previous case
+              if( m<=h && nums[m]==2)
+            {
+               swap(nums,m,h);
+                h--;
+            }
+            }
+        
+       
+    }
+     private void swap(int[] nums, int i, int j)
+        {
+            int temp=nums[i];
+            nums[i]=nums[j];
+            nums[j]=temp;
+        }
+}
