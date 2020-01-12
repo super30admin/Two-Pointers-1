@@ -1,4 +1,4 @@
-// Time Complexity is O(N^3*NLogN) as there are three loops and one sorting operation
+// Time Complexity is O(N^3) as there are three loops and  sorting operation is constant as we are sorting only three numbers
 // Space complexity is O(N) as we are using an extra space of hashset
 // This solution gives time limit exceeds on Leetcode
 import java.util.ArrayList;
