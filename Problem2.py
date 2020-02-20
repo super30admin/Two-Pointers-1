@@ -19,7 +19,7 @@ class Solution:
 #       If length is less than 3 than we can't create triplet
         if len(nums) < 3:
             return res
-#       Sorting the number because, sorting time complexity: O(n) and algorithm takes more than that time complexity.
+#       Sorting the number because, sorting time complexity: O(n logn) and algorithm takes more than that time complexity.
         nums.sort()
 #       Running the loop and skipping last two elements.
         for i in range(len(nums)-2):
