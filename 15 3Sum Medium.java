@@ -2,7 +2,7 @@
 /**
 15. 3Sum
 Time Complexity: O(n^2)
-Space Complexity:O(n + nc3)
+Space Complexity:O(n + nc3*log*3)
     -simple HashSet
     
     -set of list of integer: max size = nC3
