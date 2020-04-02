@@ -1,0 +1,37 @@
+Time complexity: O(n)
+Space complexity: O(1)
+Did this code successfully submitted on leetcode: Yes
+
+class Solution {
+    public void sortColors(int[] nums) {
+        
+        if(nums==null || nums.length==0)
+            return;
+        
+        int left=0;
+        int right=nums.length-1;
+        int curr=0;
+        
+        while(curr<=right){
+            if(nums[curr]==0){
+                swap(nums,curr,left);
+                left++;
+                curr++;
+            }
+            else if(nums[curr]==2){
+                swap(nums,curr,right);
+                right--;
+            }else{
+                curr++;
+            }
+        }
+        return;
+    }
+    
+    private void swap(int[] nums,int curr,int pos){
+        int temp=nums[curr];
+        nums[curr]=nums[pos];
+        nums[pos]=temp;
+        return;
+    }
+}
