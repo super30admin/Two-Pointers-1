@@ -5,7 +5,7 @@
 
 
 // Your code here along with comments explaining your approach
-//Two Pinter
+//Two Pointer
 class Solution {
     public void sortColors(int[] nums) {
     //edge case
