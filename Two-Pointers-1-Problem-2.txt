@@ -1,0 +1,56 @@
+#Problem-2
+#TC:O(N^2)
+#SC:O(N)
+class Solution {
+    
+    public List<List<Integer>> Twopointer(int i,int j,int target,int[] a)
+    {
+        int low = i;
+        List<List<Integer>> set =  new ArrayList<>();
+        while(i<j)
+        {
+         int sum=a[i]+a[j];
+           if(sum==target)
+           {
+               List<Integer> list = new ArrayList<Integer>();
+               list.add(a[low-1]);
+               list.add(a[i]);
+               list.add(a[j]);
+               set.add(list);
+               i++;
+               j--;
+           }
+            else if(sum>target)
+               j--; 
+            else
+              i++;  
+        }  
+        
+        return set;
+    }
+    
+    public List<List<Integer>> threeSum(int[] nums) {
+    
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        HashSet<List<Integer>> set = new HashSet<>();
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            int t = 0-(nums[i]);
+            // = new ArrayList<>();
+              List<List<Integer>> list = Twopointer(i+1,nums.length-1,t,nums);
+            if(!list.isEmpty())
+            {
+                for(List<Integer> x : list)
+                   set.add(x);
+            }
+            
+        }
+        
+        for(List<Integer> l : set)
+            res.add(l);
+        
+        return res;
+    }
+}
