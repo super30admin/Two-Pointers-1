@@ -20,7 +20,7 @@ Output: 49
 
 """
 # we take the height from left or right side, which is smaller and calculate the area by multiplying the lower height with width
-# which is right -left index  and i end we take the maximum area
+# which is right -left index  and in end we take the maximum area
 
 
 def Container(nums):
