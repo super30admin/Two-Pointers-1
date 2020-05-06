@@ -1,0 +1,38 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class Solution {
+    public void sortColors(int[] nums) {
+        
+        /* edge case */
+        if(nums == null || nums.length == 0)
+            return;
+        
+        /* left(where we store zero) and right pointer(where we store two), index for current pointer */ 
+        int left = 0, right = nums.length - 1, index = 0;
+        
+        /* till the index is less than right pointer */
+        while (index <= right) {
+
+            /* if value at index is zero then we swap with the value at left pointer  and increase left pointer*/
+            if (nums[index] == 0) {
+                nums[index] = nums[left];
+                nums[left] = 0;
+                left++;
+            }
+            
+    /* if value at index is two then we swap with the value at right pointer and increase right pointer */
+            if (nums[index] == 2) {
+                nums[index] = nums[right];
+                nums[right] = 2;
+                right--;
+                index--; // here we decrease index beacuse the now the swapped value from right pointer too need to placed at right position
+            }
+            
+            /* by default we increase the index pointer*/
+            index++;
+        }
+    }
+}
