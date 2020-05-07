@@ -1,4 +1,4 @@
-# Time Complexity :
+# Time Complexity : O(N log N) for sorting , overall O(N^2)
 # Space Complexity : O(N)
 # Did this code successfully run on Leetcode : yes
 # Any problem you faced while coding this : no
