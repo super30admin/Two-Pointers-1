@@ -2,6 +2,50 @@ import java.util.*;
 
 class Sample {
 
+    // Time Complexity : O(N) N is number of elements
+    // Space Complexity : O(1) 
+    // Did this code successfully run on Leetcode : Yes
+    // Any problem you faced while coding this : No
+
+
+    // Problem 1
+    /**
+     * 1. Get the 3 pointers, low, mid and high
+     * 2. Low pointer always keeps track of 0, mid of 1 and high of 2.
+     * 3. Increment mid and decrement high as per the values present at the pointers and swap whenever necessary
+     */
+
+    public void sortColors(int[] nums) {
+        
+        if(nums == null || nums.length == 0)
+            return;
+        
+        int low = 0, mid = 0, high = nums.length-1;
+        
+        while(mid <= high) {
+            if(nums[mid] == 1) {
+                mid++;
+            }
+            else if(nums[mid] == 2) {
+                swap(nums, mid, high);
+                high--;
+            }
+            else {
+                swap(nums, mid, low);
+                low++;
+                mid++;
+            }
+        }
+        
+    }
+    
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+
     // Time Complexity : O(N^2) N is number of elements
     // Space Complexity : O(N^2) N times N sized Map is created 
     // Did this code successfully run on Leetcode : Yes
