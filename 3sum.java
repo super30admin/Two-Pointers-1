@@ -1,3 +1,12 @@
+// Time Complexity : nlogn + n*n = O(n^2)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : I faced many difficulties with this, my main problem was 
+// figuring out the two pointer approach after 1 element was fixed.
+
+
+// Your code here along with comments explaining your approach
+
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result=new ArrayList<>();
