@@ -2,7 +2,7 @@
 // Space complexity - O(1)
 
 // 3 pointers approach - left, mid and high. If mid == 0 swap with left and increase left, if mid == 1 increase mid and if mid == 2 swap with high and decrease high.
-
+//  Dutch National Flag Problem
 
 class Solution {
     public void sortColors(int[] nums) {
