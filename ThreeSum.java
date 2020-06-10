@@ -21,7 +21,7 @@ class ThreeSum {
                 if(sum==0)
                 {
                     res.add(Arrays.asList(nums[i],nums[j],nums[k]));
-                    j++;										//if sum is 0, increase k and decrease k
+                    j++;										//if sum is 0, increase j and decrease k
                     k--;
                     while(j<k && nums[j]==nums[j-1]) j++;		//Skip all consecutive identical values
                     while(j<k && nums[k]==nums[k+1]) k--;		//Skip all consecutive identical values
