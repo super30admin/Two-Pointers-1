@@ -14,6 +14,8 @@ class Solution {
         int n = nums.length;
         
         for(int i = 0; i < n-2; i++) { 
+            if(nums[i] > 0) break; //if nums[i] > 0 we will never have sum == 0, as array is sorted
+            //so come out of loop
             //set i, for each i, we check diff combination of low and high
             // < n-2 as low will be n-2 and high will be n-1. 
             if(i == 0 || nums[i] != nums[i-1]) { //to avoid duplicates, check is i is equal to i-1
