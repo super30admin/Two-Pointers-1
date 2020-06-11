@@ -10,34 +10,31 @@
 
 
 class Solution {
+    private void swap(int [] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
     public void sortColors(int[] nums) {
         if(nums==null || nums.length ==0)return;
-        int red = 0;
-        int white = 0;
-        int blue = 0;
-        for(int i =0 ; i<nums.length; i++){
-            if(nums[i]==0)red++;
-            if(nums[i]==1)white++;
-            if(nums[i]==2)blue++;
-            
-        } 
-        int i =0;
-        while(red!=0){
-            nums[i]=0;
-            red--;
-            i++;
+        int low = 0;
+        int mid = 0;
+        int high = nums.length-1;
+        while(mid<=high){
+            if(nums[mid]==1){
+                mid++;
+            }
+            else if(nums[mid]==2){
+                swap(nums,mid,high);
+                high--;
+                    
+            }else{
+                swap(nums,mid,low);
+                mid++;
+                low++;
+            }
         }
-        while(white!=0){
-            nums[i]=1;
-            white--;
-            i++; 
-        }
-        while(blue!=0){
-            nums[i]=2;
-            blue--;
-            i++;
-            
-        }
+     
         
     }
 }
