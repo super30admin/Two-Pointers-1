@@ -1,8 +1,12 @@
 /*
-
-Time Complexity : O(N^2)
-space complexity : O(1)
-is Worked on leetcode : YES
+    BRute Force
+        Time Complexity : O(N^2)
+        space complexity : O(1)
+        is Worked on leetcode : YES
+    Two Pointer:
+        Time Complexity : O(N)
+        Space complexity : O(1)
+        is worked on leetcode : YES
 
 */
 
@@ -16,6 +20,23 @@ public class Container_with_mostWater{
 //                 width * min height of two bar
                 int new_area = (j-i) * (Math.min(height[i],height[j]));
                 max = Math.max(max, new_area);
+            }
+        }
+        return max;
+    }
+
+    public int maxArea_Two_Pointer(int[] height) {
+        if( height == null || height.length == 0) return 0;
+        int max = 0;
+        int n  = height.length;
+        int low = 0;
+        int high = n-1;
+        while (low < high){
+            max = Math.max(max,Math.min(height[low],height[high])* (high-low));
+            if(height[low] > height[high]){
+                high--;
+            }else{
+                low++;
             }
         }
         return max;
