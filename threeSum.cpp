@@ -7,7 +7,6 @@ public:
         vector<vector<int>>result;
         sort(nums.begin(),nums.end()); 
         int n = nums.size();
-        //Basically we have 3 pointers i.e i,l,h
         for(int i=0;i< n-2;i++){
             if(i>0 && nums[i]==nums[i-1])
                 continue;
