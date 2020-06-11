@@ -36,7 +36,7 @@ class Solution {
 // Any problem you faced while coding this :
 
 /*
-Bruteforce
+2 pointers
 1. Maintain two pointers at start and end, increment and decrement respectively in search of more height.
 2. Maintain local and global max at every iteration.
 */
