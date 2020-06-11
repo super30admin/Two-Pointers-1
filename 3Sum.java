@@ -38,3 +38,46 @@ Bruteforce
         return result;
     }
 }
+
+
+
+class Solution {
+    // Time Complexity : O(length of nums ^ 2)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :
+
+/*
+2 pointers 
+1. sort array and use 2 pointers
+2. for every elelemnt, find complement and then use 2 pointers to find 2sum of complement.
+*/
+
+// Your code here along with comments explaining your approach
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        Arrays.sort(nums);
+        for(int i =0; i<nums.length-2; i++){
+            if(i>0 && nums[i]==nums[i-1]) continue;
+            int cp = (0-nums[i]);
+            int low = i+1; int high = nums.length-1;
+            while(low<high){
+                int sum = nums[low]+nums[high];
+                if(sum == cp){
+                    List<Integer> l = Arrays.asList(nums[i],nums[low],nums[high]);
+                    result.add(l);
+                    low++; high--;
+                    while(low<high && nums[low]==nums[low-1]) low++;
+                    while(low<high && nums[high]==nums[high+1]) high--;
+                }
+                else if(sum < cp){
+                    low++;
+                }
+                else{
+                    high--;
+                }
+            }
+        }
+        return result;
+    }
+}
