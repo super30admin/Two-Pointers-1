@@ -90,6 +90,8 @@ public class Sort_Colors{
         int end = nums.length -1;
         
         while(mid <= end){
+
+            //  if element is zero swap 
             if(nums[mid] == 0 ){
                 swap(nums,start,mid); 
                 start++;
