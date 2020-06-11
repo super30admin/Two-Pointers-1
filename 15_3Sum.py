@@ -1,5 +1,5 @@
 """
-Time Complexity : O(n) [n = length of the input list]
+Time Complexity : O(n*n) [n = length of the input list]
  
 Space Complexity : O(1)
  
