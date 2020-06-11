@@ -9,7 +9,12 @@
         is worked on leetcode : YES
 
 */
-
+/*
+    Idea is that we will use 2 pointer, one from start and one from end of the array, we will calculate the
+    area and compare with maximum area till now, and update max if required.
+    intuation is that area is dominated by the smaller height so we will move our pointer towards higher height
+    
+*/
 public class Container_with_mostWater{
     public int maxArea(int[] height) {
         if( height == null || height.length == 0) return 0;
