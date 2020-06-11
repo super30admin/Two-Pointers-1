@@ -1,7 +1,10 @@
 // Time Complexity : (O)n
 // Space Complexity : (O)1
 // Did this code successfully run on Leetcode : yes
-//Use two pointer technique to find the maximum area
+//Used two pointer technique to find the maximum area
+//Have low pointer from left side and high pointer from right side
+// move low pointer if its low otherwise decrease high pointer
+//set max area from currentArea and previous maximum area
 
 
 class Solution {
