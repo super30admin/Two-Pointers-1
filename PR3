@@ -1,0 +1,24 @@
+// Time Complexity :O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :No
+
+
+// Your code here along with comments explaining your approach: Start by using two pointers at the beginning and the end get the area and update the max area, check if low<high if yes update low if not increment high.Keep repeating this to get the max area until the pointers meet.
+
+class Solution {
+    public int maxArea(int[] height) {
+        int maxArea=Integer.MIN_VALUE; 
+        if(height==null || height.length<2) return 0;
+        int low=0; int high=height.length-1;
+        while(low<high){
+            int currArea=(high-low) * Math.min(height[low],height[high]);
+            maxArea=Math.max(currArea,maxArea);
+            if(height[low]<height[high])
+                low++;
+            else high--;
+        }
+        
+        return maxArea;
+    }
+}

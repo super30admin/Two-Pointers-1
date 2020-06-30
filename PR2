@@ -1,0 +1,40 @@
+// Time Complexity :O(n*n) where n is the number of elements in the array)
+// Space Complexity :
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :mistakes made with the while loop. Whenever we have a while loop we must make sure the outside loop condition is not breached if there is one.always think of the immediate boundary,the rest will be taken care of.
+// Your code here along with comments explaining your approach : Sort the arrays for the 2pointer approach for the sum. Skip duplicates once a pair is found.Add the triplet to the array list and return.
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        if(nums==null || nums.length<3) return new ArrayList<>();
+        List<List<Integer>> result=new ArrayList<>();
+        Arrays.sort(nums);
+        for(int i=0;i<=nums.length-3;i++){
+            //duplicacy check outer loop.
+            if(i>0 && nums[i]==nums[i-1]){
+                continue;
+            }
+            if(nums[i]>0) break;
+            int low=i+1;int high=nums.length-1;
+            while(low<high){
+                int sum=nums[i]+nums[low]+nums[high];
+               if(sum==0){
+                List<Integer> r= Arrays.asList(nums[i],nums[low],nums[high]);
+                result.add(r);
+                   low++;
+                   high--;
+                   //duplicacy inside.
+                   while(low<high && nums[low]==nums[low-1] )
+                    low++;
+                 while(low<high && nums[high]==nums[high+1]) high--;
+                       }
+                else if(sum>0){
+                    high--;
+                }
+                else{
+                    low++;
+                }
+            }
+        }
+     return result;
+    }
+}
