@@ -26,7 +26,8 @@ class Problem3 {
         int low = 0;
         int high = width;
         
-        while(low<=high){
+        // low and high show not cross as width becomes zero
+        while(low<high){
             
             // find area
             // we need longer height to get higher area so update smaller pointer
