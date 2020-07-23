@@ -2,7 +2,6 @@
  * Time Complexity : O(N) we are passing through every element in array using index pointer
  * Space Complexity : O(1) since sorting is being done in place
  * Executed on leetcode? yes
- * issues faced : no
  * Approach : start index is at beginning of array and moves to the right as soon as we encounter a zero
  * end index sits at the end of the array and it moves to the left as soon as we encounter a two.
  * so basically start and end index keep track of the next place where you can have a zero and 2 respectively.
