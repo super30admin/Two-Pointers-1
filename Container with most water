@@ -1,0 +1,31 @@
+Approach 1 : Brute Force
+Time Complexity : O(N*3) 
+Space Complexity : O(1)
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        max_area=0
+        for i in range(len(height)):
+            for j in range(i+1,len(height)):
+                max_area =max(max_area,min(height[i],height[j])* (j - i))
+        return max_area
+
+
+Approach 2 : Two Pointer Approach
+Space Complexity :O(n)
+Time Complexity : O(1)
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        max_area=0, ### Two pointer Approach
+        left=0
+        right=len(height)-1
+        while left < right:
+            area=min(height[left],height[right])*(right-left)
+            
+            if area>max_area:
+                max_area=area
+            if height[left]<height[right]:
+                left+=1
+            else:
+                right-=1
+        return max_area
+            
