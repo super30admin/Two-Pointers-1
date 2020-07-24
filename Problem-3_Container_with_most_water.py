@@ -1,4 +1,31 @@
-# APPROACH 1
+# APPROACH 1: BRUTE FORCE SOLUTION
+# Time Complexity : O(n^2), n: length of heights
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : No (TIME LIMIT EXCEEDED)
+# Any problem you faced while coding this : None
+#
+#
+# Your code here along with comments explaining your approach
+# 1. Calculate area for every pair of height such that second height is after the first height.
+# 2. Keep track of max area.
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        
+        if not height or len(height) < 2:
+            return None
+        
+        max_area = 0
+        for height_1 in range(len(height) - 1):
+            for height_2 in range(height_1 + 1, len(height)):
+                
+                curr_area = (height_2 - height_1) * min(height[height_1], height[height_2])
+                max_area = max(max_area, curr_area)
+                
+        return max_area
+    
+    
+# APPROACH 2: OPTIMAL SOLUTION
 # Time Complexity : O(n), n: length of heights
 # Space Complexity : O(1)
 # Did this code successfully run on Leetcode : Yes
