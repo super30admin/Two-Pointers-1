@@ -1,0 +1,39 @@
+Approach 1 : Brute Force Approach . Iterate through two loops and compare and then swap
+Time complexity : O(n*2)
+Space complexity : O(1)
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n=len(nums)
+        for c in range(0,n):
+            for i in range (c,n):
+                if nums[i]<nums[c]:
+                    nums[i],nums[c]=nums[c],nums[i] ### swap it
+        return nums
+ 
+ Approach 2 :Count no of Zeros and then place in the array
+ Time complexity : O(n+n)= O(n)
+ Space Complexity :O(n)
+ Approach 3 : Three pointer Approach
+ Time Complexity :O(n) ----> Iterate through the entire array , one pass at a time.
+ Space Complexity : O(1)
+ class Solution: 
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        low=0 ## Two Pointer Approach
+        high=len(nums)-1
+        mid=0 
+        while (mid<=high):
+            if nums[mid]==1:
+                mid+=1
+            elif nums[mid]==0:
+                nums[low],nums[mid]=nums[mid],nums[low] #### Swapping Mid with low
+                low+=1
+                mid+=1
+            else:
+                nums[mid],nums[high]=nums[high],nums[mid] #### Swapping high with mid
+                high-=1
