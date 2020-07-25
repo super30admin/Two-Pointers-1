@@ -1,6 +1,6 @@
 # APPROACH 1: Optimal Solution
 # Time Complexity : O(n^2), n: length of nums
-# Space Complexity : O(1)
+# Space Complexity : O(n) : because of sorting
 # Did this code successfully run on Leetcode : Yes
 # Any problem you faced while coding this : None
 #
