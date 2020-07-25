@@ -1,4 +1,4 @@
-//TC: O(n)
+//TC: O(n), n: length of the height[]
 //SC: O(1)
 //Approach:
 // As we need to get the max area, and smaller height gets to decide the area for that particular combination, while iterating, we move that pointer which points
