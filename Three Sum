@@ -1,0 +1,46 @@
+Approach 1 : Brute Force Approach. Iterate through three loops and continue to check the sum. In this case i am getting duplicates
+Time Complexity :O(n*3)
+Space Complexity: O(n)
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result=[]
+        for i in range (0,len(nums)):  ## Start
+            for j in range(i,len(nums)): 
+                for k in range(j+1,len(nums)): ## Iterate the pointer to find the sum
+                    if nums[i]+nums[j]+nums[k]==0:
+                        result.append([nums[i],nums[j],nums[k]])
+        return result
+ 
+ Approach 2: Two Pointer Approach
+ Time Complexity : O(n*nlog(n))= O(n*2) ?????  Is this Correct ?
+ Space Complexity : O(n) ??? or O(logn)  
+ class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result=[]
+        if len(nums)<3:
+            return result 
+        nums.sort() ## Sorting just to minimise the time complexity and have the #duplicates next to each other.
+        n=len(nums)
+        sum_=0
+        for i in range(n-1) : #i = First element
+            if (i>0 and nums[i-1]==nums[i]):
+                continue
+            low=i+1
+            high=n-1
+            while (low<high):
+                sum_=nums[i]+nums[low]+nums[high]
+                    ## case 1
+                if sum_==0:
+                    result.append([nums[i],nums[low],nums[high]])
+                    low+=1
+                    high-=1
+                    while (low<high and nums[low]==nums[low-1]):
+                            low+=1
+                    while (low<high and nums[high]==nums[high+1]):
+                            high-=1
+                elif sum_< 0:
+                    low+=1
+                else:
+                    high-=1
+        return result
+
