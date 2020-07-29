@@ -1,6 +1,6 @@
 # APPROACH 1: Optimal Solution
 # Time Complexity : O(n^2), n: length of nums
-# Space Complexity : O(n) : because of sorting
+# Space Complexity : O(1) : O(n) under the hood for Python's sort as it uses TimSort 
 # Did this code successfully run on Leetcode : Yes
 # Any problem you faced while coding this : None
 #
