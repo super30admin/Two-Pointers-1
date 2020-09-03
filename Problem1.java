@@ -41,7 +41,7 @@ class Solution {
 
 // 2nd APPROACH
 
-// TC: O(n)
+// TC: O(n), n = array length
 // SC: O(1)
 
 class Solution {
