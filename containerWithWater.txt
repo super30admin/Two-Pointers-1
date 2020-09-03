@@ -1,0 +1,22 @@
+//T: O(N)
+//S: O(1)
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        if(height.size()==0) return 0;
+        int left = 0;
+        int right = height.size()-1;
+        int currArea;
+        int mx = INT_MIN;
+        while(left<right){
+            //cout<<mx<<endl;
+            if(height[left]<height[right]) {currArea= height[left]*(right-left); left++;}
+            else { currArea = height[right]*(right-left); right--;}
+            mx = max(mx, currArea);
+        }
+        
+        return mx;
+        
+        
+    }
+};
