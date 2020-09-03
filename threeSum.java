@@ -1,6 +1,6 @@
     /*  Explanation
-    # Leetcode problem link : https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
-    Time Complexity for operators : o(n) .. number of  elements in the array
+    # Leetcode problem link : https://leetcode.com/problems/3sum/
+    Time Complexity for operators : o(n2) 
     Extra Space Complexity for operators : o(1) .. LIST is the required return type.
     Did this code successfully run on Leetcode : Yes
     Any problem you faced while coding this : No
