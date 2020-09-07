@@ -1,4 +1,5 @@
-
+//time:O(n)
+//space:O(1)
 public class Problem3 {
     public int maxArea(int[] height) {
         if(height==null || height.length<=1)
