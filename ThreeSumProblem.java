@@ -1,4 +1,7 @@
 class ThreeSumProblem {
+    // Time Complexity: O(n^2).   (nlogn for sorting) + (n^2 twoSumII is O(n), and we call it n times) = O(n^2)
+    // Space Complexity: O(log n) or O(n), depending on the sorting algorithm, Java 1.8 uses Dual-Pivot QuickSort which is O(logn)
+    //      The space used for output(res) is not considered since it is the output expected.
     public List<List<Integer>> threeSum(int[] nums) {
         if(nums.length < 3) 
             return new ArrayList();
