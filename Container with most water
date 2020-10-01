@@ -1,0 +1,24 @@
+// two pointer : reducing the search space
+// time complexity: O(n)
+//space complexity: O(1)
+// idea: area formed between lines will be limited by height of shorter line
+class Solution {
+    public int maxArea(int[] height) {
+        int l = 0;
+        int r = height.length-1;
+        int max = Integer.MIN_VALUE;
+        
+        while(l < r){
+              max = Math.max(max, Math.min(height[l], height[r]) * (r-l));
+           if(height[l] < height[r]){
+                l++;
+           }else{
+               r--;
+           } 
+            
+        }
+        
+        return max;
+        
+    }
+}
