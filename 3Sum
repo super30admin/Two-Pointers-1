@@ -1,0 +1,42 @@
+// time complexity: O(n^2)
+//space complexity: O(1)
+//two pointer: for applying this approach, we sort the array, sorting the array also helps in get rid of duplicates
+// for every element, we try to find the unique triplets which make the sum = 0
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if(nums.length == 0 || nums == null || nums.length < 3) return result;
+        
+        Arrays.sort(nums);
+        int n = nums.length-1;
+        for(int i = 0; i <= n-2; i++){
+          
+           if(i > 0 && nums[i] == nums[i-1]) continue;
+            
+            int left = i+1;
+            int right = n;
+            
+            if(nums[i] > 0) break;
+            while(left < right){
+                int sum = nums[i] + nums[left] + nums[right];
+                
+                if(sum == 0){
+                    List<Integer> current = Arrays.asList(nums[i], nums[left], nums[right]);
+                    result.add(current);
+                    left++;
+                    right--;
+                    while(left < right && nums[left] == nums[left-1]) left++;
+                    while(left < right && nums[right] == nums[right+1]) right--;
+                }
+                
+                else if(sum < 0){
+                    left++;
+                }
+                else{
+                    right--;
+                }
+            }
+        }
+        return result;
+    }
+}
