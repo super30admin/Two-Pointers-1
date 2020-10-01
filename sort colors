@@ -1,0 +1,31 @@
+//time complexity: O(n)
+//space complexity: O(1)
+/*idea is to define left boundaries (zero), right boundaries(twos) and medium(ones) using three pointers and group 0's and 1's and 2's in order of 0, 1, 2 */
+class Solution {
+    public void sortColors(int[] nums) {
+        int left = 0;
+        int right = nums.length-1;
+        int curr = 0;
+        
+        while(curr <= right){
+        // if we do (curr < right), [2,0,1] => test fails
+            if(nums[curr] == 1){
+                curr++;
+            }
+            
+            else if(nums[curr] == 0){
+                swap(nums, curr++, left++);
+            }
+            
+            else if(nums[curr] == 2){
+                swap(nums, curr, right--);
+            }
+        }
+    }
+    
+    public void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
