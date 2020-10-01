@@ -1,11 +1,11 @@
 """
-// Time Complexity : O(N^3)
+// Time Complexity : O(N^2)
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode : yes
 // Any problem you faced while coding this : no
 """
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums):
         
         result = []
         nums.sort()
