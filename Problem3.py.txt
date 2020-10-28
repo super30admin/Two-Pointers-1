@@ -1,0 +1,20 @@
+# Time Complexity : O(n)
+# Space Complexity : O(1)
+# Did this code successfully run on LeetCode : Yes
+# Any problem you faced while coding this : No
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        
+        i = 0
+        j = len(height) - 1
+        maxValue = 0
+        
+        while i < j:
+            maxValue = max(maxValue, min(height[i], height[j])*(j-i))
+            if height[j] >= height[i]:
+                i += 1
+            else:
+                j -= 1
+                
+        return maxValue
