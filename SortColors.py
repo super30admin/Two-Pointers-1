@@ -14,9 +14,15 @@ class Solution:
         if not nums:
             return []
 
-        counts = collections.Counter(nums)
-        k = 0
-        for i in range(0, 3):
-            for j in range(counts[i]):
-                nums[k] = i
-                k += 1
+        l, h, m = 0, len(nums)-1, 0
+
+        while m <= h:
+            if nums[m] == 1:
+                m += 1
+            elif nums[m] == 2:
+                nums[m], nums[h] = nums[h], nums[m]
+                h -= 1
+            else:
+                nums[l], nums[m] = nums[m], nums[l]
+                l += 1
+                m += 1
