@@ -1,3 +1,11 @@
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+# Did this run on Leetcode: Yes
+# Approach:
+# Use two pointers to keep track of the containers boundaries - initially at start and end of the array
+# The min of the two pointers is the upper bound of the height of the container
+# The width (difference between the pointers) * height is the area
+
 class Solution(object):
     def maxArea(self, height):
         """
