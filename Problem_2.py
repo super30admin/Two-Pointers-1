@@ -1,3 +1,18 @@
+"""
+Time Complexity : O(n^2) 
+Space Complexity : O(1) 
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+
+Your code here along with comments explaining your approach:
+This question is an extended version of two pointer approach. We first sort the array which has O(nlogn)
+complexity. Here we traverse through the array once,and at each point, we take nums[i] as the first value, 
+and from i to len(nums), we check which two numbers in addition to nums[i], will make the sum 0. This inner 
+while loop follows the 2 pointer approach. 
+"""
+
+
 class Solution(object):
     def threeSum(self, nums):
         """
