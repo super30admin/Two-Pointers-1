@@ -9,9 +9,10 @@ class Solution {
        //edge case 
         if(nums == null || nums.length == 0) return new ArrayList<>();
         // if(nums.length == 3) return nums;
-        HashSet<List<Integer>> set = new HashSet<>();
+        List<List<Integer>> set = new ArrayList<>();
         Arrays.sort(nums);
         for(int i = 0; i < nums.length - 2; i++){
+            if(i>0 && nums[i] == nums[i-1]) continue;
             int low = i + 1;
             int high = nums.length - 1;
             while(low < high){
@@ -29,6 +30,6 @@ class Solution {
                 }
             }
         }
-        return new ArrayList(set);
+        return set;
     }
 }
