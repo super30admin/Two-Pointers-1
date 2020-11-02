@@ -7,10 +7,9 @@ public class ContainersBruteForce {
 		int maxVal = 0;
 		for (int i = 0; i < height.length - 1; i++) {
 			for (int j = i + 1; j < height.length; j++) {
-				maxVal = Math.max(maxVal, Math.min(height[i], height[j]) * (j - i));
+				maxVal = Math.max(maxVal, Math.min(height[i], height[j]) * (j - i)); //area is calculate
 			}
 		}
-
 		return maxVal;
 
 	}
