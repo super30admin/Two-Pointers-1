@@ -42,3 +42,21 @@
 //else nums[mid] ==2  use swap function to swap high and mid then after this decrement high
 //else nums[mid] ==00  use swap function to swap low and mid then after this increment low and mid
 //do this till mid reaches high
+
+
+
+//3Sum
+// Time Complexity : O(nlogn + n^2)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : No
+//Failed to execute this input case [0,0,0]
+// Any problem you faced while coding this : No
+
+// Your code here along with comments explaining your approach
+
+// In one for loop i.e. outer loop;Take two pointers low and high iterate them in an inner loop till the sum==0
+//add those values in any list
+//if sum is less than 0 increment low 
+//if sum is greater than 0 then decrement high
+
+
