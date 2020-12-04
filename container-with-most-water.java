@@ -3,7 +3,7 @@
 
 class Solution {
     public int maxArea(int[] height) {
-        if(height == null || height == 0) {
+        if(height == null || height.length == 0) {
           return 0;
         }
         int max = 0;
