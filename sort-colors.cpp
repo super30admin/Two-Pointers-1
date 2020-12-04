@@ -1,3 +1,6 @@
+//Time Complexity - O(n)
+//Time complexity - O(1)
+
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
