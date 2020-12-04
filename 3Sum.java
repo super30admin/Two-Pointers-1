@@ -1,4 +1,4 @@
-// Time - O(NlgN + N^2)
+// Time - O(NlgN + N^2) ~ O(N^2) 
 // Space - O(1)
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
