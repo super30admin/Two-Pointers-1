@@ -1,0 +1,58 @@
+
+// Time Complexity : O(N^2)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :
+
+
+// Your code here along with comments explaining your approachclass Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        
+        List<List<Integer>>result=new ArrayList<>(); //to store result of the values 
+        if(nums==null||nums.length==0)
+        {
+            return result;
+        }
+        
+        int n=nums.length;
+        Arrays.sort(nums);      //sort the array 
+        
+        for (int i=0;i<n-2;i++)
+        {
+            if(i>0&&nums[i]==nums[i-1]) continue; //skipping the same element
+                int low=i+1,high=n-1;   
+            
+            while(low<high)
+            {
+                int sum=nums[i]+nums[low]+nums[high];
+                
+                if(sum==0)
+                {
+                    result.add(Arrays.asList(nums[i],nums[low],nums[high]));
+                    
+                    low++;
+                    high--;
+                    
+                    while(low<high&&nums[low]==nums[low-1]) //check duplicacy
+                        low++;
+                    
+                    while(low<high&&nums[high]==nums[high+1])
+                        high--;
+                }
+                else if (sum<0)
+                {
+                    low++;
+                }
+                else
+                {
+                    high--;
+                }
+
+                
+            }
+            
+            
+        }
+        return result; 
+    }
+}
