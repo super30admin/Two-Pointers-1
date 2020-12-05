@@ -1,0 +1,27 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : New concept to decide which pointer to reduce.
+
+// Your code here along with comments explaining your approach: Idea is to use two pointer strategy and calculate area as max.
+
+class Solution {
+    public int maxArea(int[] height) {
+        if(height==null || height.length==0){
+            return 0;
+        }       
+        int low = 0;
+        int high = height.length-1;
+        int area = 0;
+        while(low<=high){
+             area = Math.max(area,(high-low)*Math.min(height[low],height[high]));
+                
+            if(height[low]<=height[high]){
+                low++;
+            }else{
+                high--;
+            }        
+        }
+        return area;
+    }
+}
