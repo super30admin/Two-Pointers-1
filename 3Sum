@@ -1,10 +1,10 @@
 // Time Complexity : O(N^2)
 // Space Complexity : O(1)
-// Did this code successfully run on Leetcode : 
-// Any problem you faced while coding this :
+// Did this code successfully run on Leetcode :  Yes
+// Any problem you faced while coding this : No
 
-
-// Your code here along with comments explaining your approach: 
+// Your code here along with comments explaining your approach: Idea is two use two pointer strategy and check if they sum upto 0. 
+// 1st pointer is current element and other 2 are low and high
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -13,11 +13,8 @@ class Solution {
         if(nums==null || nums.length==0){
             return result;
         }
-        
         //Approach works only on sorted array
         Arrays.sort(nums);
-        
-        
         for(int i = 0 ; i < nums.length - 2 ; i++){                     
             if(i > 0 && nums[i] == nums[i-1]){    //IGnoring/Skipping Duplicate elements in array to have unique entries in result list
                 continue;
