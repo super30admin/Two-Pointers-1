@@ -2,6 +2,7 @@ class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
+        Complexity: Space- O(1), Time: O(n)
         """
         i=0
         j=0
