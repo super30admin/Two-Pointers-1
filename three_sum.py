@@ -7,6 +7,8 @@
 # Sorting take O(N log N) + O(N) * O(log N) ( log N for binary search & O(N) for outer iteration) ~= O(N^2 log (N))
 
 # Optimized Solution 2
+# Time : O(N^2)
+# Space : O(1) since we return as result
 # Sort the array and use 2 pointers to find the match. 
 
 def threeSum(array):
