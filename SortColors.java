@@ -9,50 +9,56 @@
         ,white , blue. This would have O(n) time complexity and O(n) space
         
         
-        Better approach is to make use of 2 pointers, so that nums is sorted in place with 1 single pass
-        this has O(n) time and o(1)space.
-        
-        Use 2 ppinters inintialised at start and end of array.
-        At each iteration compare elements present at p1, p2 and move the only pointer towards the greater element. 
-        
+    //use 3 pointers low, high and mid
+    at every iteration check the element at mid
+    if element is 0, swap with low , low++, mid++
+    if element is 2, swap with high, high--
+    else swap with mid, mid++;
+    
+    this is because we are given 3 elements 0,1,2 only
+    
+    
         
         */
 
 
-class SortColors {
-    public void sortColors(int[] nums) {
+class sortColors {
+
+public void sortColors(int[] nums){
+    if(nums.length == 0 || nums == null){
+        return;
+    }
+    
+    int low =0;
+    int high = nums.length - 1;
+    int mid =0;
+    
+    while(mid <= high){
         
-       
-        //if there are no elements
-        if(nums.length == 0){
-            System.out.println("No input elements are present");
-            return;
+        //3 cases here
+        if(nums[mid] == 0)
+        {
+            swap(nums,low,mid);
+            low++;
+            mid++;
         }
         
-        //assign 2 pointers at start and end of the array
-        int p1 = 0;
-        int p2 = nums.length-1;
-        
-        //continue to swap until the p1 and p2 cross
-        while(p1 <= p2){
-            //if element at p1 > element at p2, then swap
-            //always move the pointers to greater side
+        else if(nums[mid] == 1){
+            mid++;
+        }
+        //for nums[mid] == 2, put it at end
+        else{
             
-            
-            if(nums[p1] > nums[p2]){
-                //swap here  
-                swap(nums,p1,p2);
-                p2--;
-            }else{
-                p1++;        
-             }
-        
+            swap(nums,high,mid);
+            high--;
+        }
     }
+    
 }
         
-    private void swap(int[]nums,int p1,int p2){
-               int temp = nums[p1];
-                nums[p1] = nums[p2];
-                nums[p2] = temp;
+    private void swap(int[]nums,int i,int j){
+               int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
     }
 }
