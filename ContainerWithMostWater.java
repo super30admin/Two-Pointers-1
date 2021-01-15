@@ -1,4 +1,4 @@
-// Time Complexity : o(n^2)
+// Time Complexity : o(n)
 // Space Complexity : o(1)
 // Did this code successfully run on Leetcode : Yes
 public class ContainerWithMostWater {
