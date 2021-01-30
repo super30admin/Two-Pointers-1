@@ -20,7 +20,7 @@ class Solution:
         low, high = 0, len(height) - 1
         
         # track max area
-        max_area = float("-inf")
+        max_area = 0
         
         # loop till a valid container is possible
         while low < high:
