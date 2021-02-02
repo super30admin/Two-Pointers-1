@@ -1,0 +1,26 @@
+class Solution {
+    public int maxArea(int[] height) {
+        int max = height[0];
+        int capacity = 0;
+        int n = height.length;
+        if(height.length<=1){
+            return 0;
+        }
+        if(height.length==2){
+            max = Math.min(height[0],height[1]);
+        }
+        for(int i=0;i<n-1;i++){
+            for(int j=i+1;j<n;j++){
+                int small = Math.min(height[i],height[j]);
+                capacity = small * (j-i);     
+                max = Math.max(max,capacity);
+            }
+        }
+        
+        return max;
+    }
+}
+
+// time Complexity : O(n^2)
+//Space Complexity : O(1)
+//Leetcode : Accepted
