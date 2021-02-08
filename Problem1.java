@@ -1,3 +1,5 @@
+// Time: O(n)
+//SPace: O(1)
 class Solution {
     public void sortColors(int[] nums) {
       if(nums == null || nums.length == 0){
