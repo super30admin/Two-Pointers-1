@@ -1,7 +1,8 @@
 # Brute Force Approach
 # Time Complexity: O(n^3)
 # Space Complexity: O(1)
-'''class Solution:
+'''
+class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         res = []
         li = []
