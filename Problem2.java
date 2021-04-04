@@ -1,6 +1,6 @@
 //3 Sum
-// Time Complexity :
-// Space Complexity :
+// Time Complexity : O(n^2)
+// Space Complexity :O(1) Not considering the result list
 // Did this code successfully run on Leetcode :
 // Any problem you faced while coding this :
 //3 pointers, low, high & curr(i)
