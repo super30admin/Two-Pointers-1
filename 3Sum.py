@@ -1,4 +1,4 @@
-# TC: O(N) since we are using 2 pointers to traverse the input array and find sum. N is the size of the input array. 
+# TC: O(NlogN) since we are sorting the array and then traversing it in one pass. N is the size of the input array. 
 # SC: O(1) since we are not using any extra space.
 
 class Solution:
