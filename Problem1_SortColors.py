@@ -25,7 +25,7 @@ S30 SlackID : RN32MAY2021
 # Time             :  36 ms   (45.69 %ile)
 # Space            :  14.2 MB (43.33 %ile)
 
-
+from typing import List
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
@@ -42,9 +42,7 @@ class Solution:
         elif n == 2:
             # O(1) since there are only two elements in the array
             if nums[1] < nums[0]:
-                temp = nums[0]
-                nums[0] = nums[1]
-                nums[1] = temp
+                nums[0], nums[1] = self.swap(nums[0], nums[1])
 
             return nums
 
@@ -62,10 +60,9 @@ class Solution:
                 if nums[curr_idx] == 0:
                     # swap element at curr_idx with element at rightmost red
                     # move curr_idx to the right and rightmost red to right
-                    temp = nums[curr_idx]
-                    nums[curr_idx] = nums[rightmost_red]
-                    nums[rightmost_red] = temp
-
+                    nums[curr_idx], nums[rightmost_red] = \
+                            self.swap(nums[curr_idx], nums[rightmost_red])
+                    
                     rightmost_red += 1
                     curr_idx += 1
 
@@ -79,9 +76,9 @@ class Solution:
                     # do nothing to current_idx, because the swapped element
                     # might be a 0 and we need to check the first condition
                     # again
-                    temp = nums[curr_idx]
-                    nums[curr_idx] = nums[leftmost_blue]
-                    nums[leftmost_blue] = temp
+
+                    nums[curr_idx], nums[leftmost_blue] = \
+                            self.swap(nums[curr_idx], nums[leftmost_blue])
 
                     leftmost_blue -= 1
 
@@ -91,4 +88,13 @@ class Solution:
                     return [-1]
 
             return nums
+
+    def swap(self, item1:int, item2:int) -> (int, int):
+        temp = item1
+        item1 = item2
+        item2 = temp
+        return item1, item2
+
+obj = Solution()
+print(obj.sortColors([2,0,2,1,1,0]))
 
