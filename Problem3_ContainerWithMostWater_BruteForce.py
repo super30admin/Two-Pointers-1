@@ -43,4 +43,5 @@ class Solution:
                 for j in range(i+1, n):
                     max_water = max(max_water, \
                                     (min(height[i], height[j]) * (j-i)))
+        
         return max_water
