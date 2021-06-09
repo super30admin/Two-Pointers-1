@@ -58,6 +58,7 @@ class Solution:
             while i < n and sorted_nums[i] <= target:
                 # Make sure we are not repeating same element in nums[i]
                 # To avoid duplicates
+                # Don't check the above condition for i==0
                 if i == 0 or sorted_nums[i] != sorted_nums[i-1]:
                     low = i+1
                     high = n-1
