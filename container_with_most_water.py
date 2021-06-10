@@ -9,7 +9,7 @@ class Solution(object):
         max_val = 0
         #         Iterate over array till left pointer is less than right pointer
         while left < right:
-            #           max value will be max between prvoius max and area with current left and right
+            # max value will be max between previous max and area with current left and right
             max_val = max(max_val, min(height[left], height[right]) * (right - left))
             #           if current left element is less than current  right then update left or else update right
             if height[left] < height[right]:
