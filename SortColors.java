@@ -1,3 +1,5 @@
+// TC: O(n)
+// SC: O(1)
 class Solution {
     private void swap(int[] nums, int a, int b) {
         int temp = nums[a];

@@ -1,3 +1,5 @@
+// TC: O(n^3)
+// SC: O(1)
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         if(nums == null || nums.length == 0) {
