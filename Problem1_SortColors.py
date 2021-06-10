@@ -48,22 +48,22 @@ class Solution:
 
         else:
             # Pointer to the right-most red. Initialize w/ 0
-            rightmost_red = 0 
+            left = 0 
 
             # Pointer to the left-most blue. Initialize w/ n-1
-            leftmost_blue = n-1
+            right = n-1
 
             # Current index to address the elements within nums
             curr_idx = 0
 
-            while (curr_idx <= leftmost_blue):
+            while (curr_idx <= right):
                 if nums[curr_idx] == 0:
                     # swap element at curr_idx with element at rightmost red
                     # move curr_idx to the right and rightmost red to right
-                    nums[curr_idx], nums[rightmost_red] = \
-                            self.swap(nums[curr_idx], nums[rightmost_red])
+                    nums[curr_idx], nums[left] = \
+                            self.swap(nums[curr_idx], nums[left])
                     
-                    rightmost_red += 1
+                    left += 1
                     curr_idx += 1
 
                 elif nums[curr_idx] == 1:
@@ -77,10 +77,10 @@ class Solution:
                     # might be a 0 and we need to check the first condition
                     # again
 
-                    nums[curr_idx], nums[leftmost_blue] = \
-                            self.swap(nums[curr_idx], nums[leftmost_blue])
+                    nums[curr_idx], nums[right] = \
+                            self.swap(nums[curr_idx], nums[right])
 
-                    leftmost_blue -= 1
+                    right -= 1
 
 
                 else:
