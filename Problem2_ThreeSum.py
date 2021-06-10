@@ -38,16 +38,16 @@ class Solution:
         target = 0
 
         if n < 3:
-            return result
+            return
 
         elif n == 3:
             if nums[0] + nums[1] + nums[2] == target:
                 result.append(nums)
-                return result
-            else:
-                return result
+            
+            return result
         
         else:
+            # O(Nlog(N)) to sort
             sorted_nums = sorted(nums)
             # print(f"Sorted nums: {sorted_nums}")
 
@@ -55,16 +55,23 @@ class Solution:
             low = i+1
             high = n-1
 
+            # Until i reaches n-1 OR we reach the target sum, at which point,
+            # we know that the triplets following that element cannot meet
+            # the target, b.c. sorted nums
             while i < n and sorted_nums[i] <= target:
-                # Make sure we are not repeating same element in nums[i]
-                # To avoid duplicates
-                # Don't check the above condition for i==0
+                # If we encounter same element at i as we did at i-1,
+                # we need to skip the logic below to avoid considering the
+                # same pair of elements while making the triplet
+
+                # Don't check the condition for i==0
+                # Because we will go out of bounds.
                 if i == 0 or sorted_nums[i] != sorted_nums[i-1]:
-                    low = i+1
-                    high = n-1
+                    low = i+1 #First ptr
+                    high = n-1 #Second ptr
 
                     while low < high:
                         
+                        # Candidate triplet
                         triplet = [sorted_nums[i], \
                                         sorted_nums[low], \
                                         sorted_nums[high]]
@@ -74,7 +81,7 @@ class Solution:
                         # print(f"triplet: {triplet}, sum: {triplet_sum}, i:{i}")
 
                         
-                        if triplet_sum == 0:
+                        if triplet_sum == target:
                             result.append(triplet)
                             low += 1
                             high -= 1
@@ -92,7 +99,7 @@ class Solution:
 
                 i += 1
 
-        return result
+            return result
 
 
 obj = Solution()
