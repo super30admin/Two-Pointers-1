@@ -88,7 +88,7 @@ class Solution:
                             # print(f"Adding triplet: {triplet}")
                             
                             while low < high and \
-                                        sorted_nums[low] == sorted_nums[low-1]:
+                                  sorted_nums[low] == sorted_nums[low-1]:
                                 low += 1
 
                         elif triplet_sum > 0:
