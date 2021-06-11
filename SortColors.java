@@ -33,9 +33,6 @@ class Solution {
             } else if (nums[i] == 2) {
                 // swap with twos_index
                 swap(nums, i, twos_index);
-                // int temp = nums[twos_index];
-                // nums[twos_index] = nums[i];
-                // nums[i] = temp;
                 // move the end pointer left by 1
                 twos_index--;
             }
