@@ -1,3 +1,8 @@
+// Time Complexity :O(n^2)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes
+// Your code here along with comments explaining your approach: sort the vector and consider each element as pivot.linear search throghout the right of the pivot to find the pairs 
+
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) 
