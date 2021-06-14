@@ -1,3 +1,8 @@
+// Time Complexity :O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes
+// Your code here along with comments explaining your approach: take 3 pointers to collect each 0's 1's and 2's respectively  and swap and collect while each pointers traverse the array
+
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
