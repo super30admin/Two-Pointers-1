@@ -1,0 +1,31 @@
+// Time Complexity :O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :Yes
+
+class Solution {
+    func sortColors(_ nums: inout [Int]) {
+        var left = 0
+        var current = 0
+        var right = nums.count - 1
+        // before left: 0
+        // after right: 2
+        while current <= right {
+            let n = nums[current]
+            switch n {
+                case 0:
+                    nums[current] = 1   // previous value at left was necessarily a 1
+                    nums[left] = 0
+                    current += 1
+                    left += 1
+                case 1:
+                    current += 1
+                case 2:
+                    nums[current] = nums[right] // swap current & right
+                    nums[right] = 2
+                    right -= 1  // current does not change, we need to process the value that was at right index
+                default:
+                    print("ERROR")
+            }
+        }
+    }
+}
