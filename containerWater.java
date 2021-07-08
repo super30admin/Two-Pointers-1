@@ -5,16 +5,29 @@
 
 
 // Your code here along with comments explaining your approach
-public class Solution {
+class Solution {
     public int maxArea(int[] height) {
-        int maxarea = 0, l = 0, r = height.length - 1;
-        while (l < r) {
-            maxarea = Math.max(maxarea, Math.min(height[l], height[r]) * (r - l));
-            if (height[l] < height[r])
-                l++;
+       if(height == null || height.length == 0)
+           return 0;
+        
+        //initialize low and high pointer
+        int low=0, high=height.length-1;
+        //initialize max area value
+        int max = 0;
+        
+        while(low < high){
+            //calculate the current container area = width * height
+            int curContainerArea = (high-low) * Math.min(height[low], height[high]);
+            //check if current container area is higher than max
+            max = Math.max(max, curContainerArea);
+            //check if height at low is less than high
+            if(height[low] < height[high])
+                low++;
             else
-                r--;
+                high--;
+            
         }
-        return maxarea;
+        
+        return max;
     }
 }
