@@ -7,12 +7,6 @@ class Solution:
         post_array = []
         if len(height)<1:
             return 0
-        pref_array = [height[0]]
-        post_array = [height[-1]]
-        for i in range(1,len(height)):
-            pref_array.append(max(height[i],pref_array[-1]))
-        for i in range(len(height)-2, -1, -1):
-            post_array.append(max(height[i],post_array[-1]))
         max_val = 0
         i=0
         j = len(height)-1
