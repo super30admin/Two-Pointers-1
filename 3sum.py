@@ -4,29 +4,41 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        
+        if not nums:
+            return []
+        
+        result = []
         nums.sort()
-        out = []
         
         for i in range(len(nums)):
-            if i > 0 and nums[i] == nums[i-1]:
-                continue
-                
-            p = i
-            l = i+1
-            h = len(nums) - 1
-            t = -nums[i]
+            left = i+1
+            right = len(nums) - 1
             
-            while l<h:
-                if nums[l] + nums[h] < t:
-                    l += 1
-                elif nums[l] + nums[h] > t:
-                    h -= 1
+            if nums[i]>0: break # wont make the sum = 0 if all elements are greater than 0
+            
+            # outer duplicates
+            if i != 0 and nums[i] == nums[i-1]: continue
+            
+            while left < right:
+                currSum = nums[i] + nums[left] + nums[right]
+                
+                if currSum < 0:
+                    left += 1
+                elif currSum > 0:
+                    right -= 1
                 else:
-                    out.append([-t, nums[l], nums[h]])
-                    l += 1
-                    h -=1
+                    lis = [nums[i], nums[left], nums[right]]
+                    result.append(lis)
+                    left += 1
+                    right -= 1
+                    
+                    # inner duplicates
+                    while left < right and nums[left] == nums[left-1]: left += 1
+                    while left < right and nums[right] == nums[right + 1]: right -= 1
+                    
+        return result
         
-        return out
 
 
 # sorting the array first, and then iterating through it. first iterated value is pivot.
