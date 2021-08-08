@@ -25,7 +25,7 @@ public:
         while(low<high)
         {
             Max=max(Max,min(height[low],height[high])*(high-low));            //here we are calculating the area of the container formed by the low index element and high index element. By taking the height of the minimum element and finding the width by the difference btw the index of the two element.
-            if(height[low]<height[high])                                      //we will increase that pointer which has minimum height element.
+            if(height[low]<height[high])                                      //we will increase or decrease that pointer which has minimum height element.
                 low++;
             else
                 high--;
