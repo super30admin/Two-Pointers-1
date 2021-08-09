@@ -22,15 +22,15 @@ import java.util.*;
 */
 
 
-class Solution {
+class ThreeSome {
     public List<List<Integer>> threeSum(int[] nums) {
         
-        Set<List<Integer>> all= new HashSet();
+        Set<List<Integer>> all= new HashSet<>();
         
         Arrays.sort(nums);
         
         if(nums.length==0)
-            return new ArrayList(all);
+            return new ArrayList<>(all);
         
         for(int i=0;i<nums.length-2;i++)
         {
