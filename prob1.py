@@ -1,30 +1,35 @@
-# Time Complexity : O(NlogN) for quick sort
+# Time Complexity : O(N) 
 # Space Complexity : O(1)
 # Did this code successfully run on Leetcode : Yes
-# Any problem you faced while coding this : I was not able to figure out how to do it in O(N) time
+# Any problem you faced while coding this : I was checking if mid = 0 instead of nums[mid] = 0
 
 class Solution:
-    
-    def partition(self, nums: List[int], lo, hi) -> int:
-        
-        l = lo - 1
-        pivot = nums[hi]
-        for i in range(lo, hi):
-            if pivot >= nums[i]:
-                l += 1
-                nums[i], nums[l] = nums[l], nums[i]
-        nums[l+1], nums[hi] = nums[hi], nums[l+1]
-        return (l + 1)
-    
-    def quickSort(self, nums: List[int], lo, hi) -> List[int]:
-        
-        if lo < hi:
-            partition = self.partition(nums, lo, hi)
-            self.quickSort(nums, lo, partition - 1)
-            self.quickSort(nums, partition + 1, hi)
-    
-    def sortColors(self, nums: List[int]) -> None:
+
+    def swap(self, nums, l, r):
+
+        temp = nums[l]
+        nums[l] = nums[r]
+        nums[r] = temp
+
+    def sortColors(self, nums) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
-        self.quickSort(nums, 0, len(nums) - 1)
+        lo, mid, hi = 0, 0, len(nums) - 1
+        while mid <= hi:
+
+            if nums[mid] == 0:
+                self.swap(nums, lo, mid)
+                lo += 1
+                mid += 1
+            elif nums[mid] == 2:
+                self.swap(nums, mid, hi)
+                hi -= 1
+            else:
+                mid += 1
+
+obj = Solution()
+nums = [2,0,2,1,1,0]
+print(nums)
+obj.sortColors(nums)
+print(nums)
