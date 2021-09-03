@@ -1,0 +1,25 @@
+// Time Complexity :
+// Space Complexity :
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :
+
+
+// Your code here along with comments explaining your approach
+
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        low=0
+        high=len(height)-1
+        maxi=0
+        while(low<high):
+            area=min(height[low],height[high])*(high-low)
+            maxi=max(maxi, area)
+            if(height[low]<=height[high]):
+                low=low+1
+            else:
+                high=high-1
+        return maxi
