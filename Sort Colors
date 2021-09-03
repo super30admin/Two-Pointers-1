@@ -1,0 +1,23 @@
+class Solution(object):
+    def sortColors(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        low=0
+        high=len(nums)-1
+        mid=0
+        while(mid<=high):
+            if(nums[mid]==2):
+                temp1=nums[mid]
+                nums[mid]=nums[high]
+                nums[high]=temp1
+                high=high-1
+            elif(nums[mid]==0):
+                temp2=nums[mid]
+                nums[mid]=nums[low]
+                nums[low]=temp2
+                low=low+1
+                mid=mid+1
+            else:
+                mid=mid+1
