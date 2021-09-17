@@ -34,3 +34,5 @@ class Solution {
         return result;
     }
 }
+
+//TC: N*N log (N)
