@@ -1,0 +1,28 @@
+class Solution {
+    public int maxArea(int[] height) {
+        int maxArea= Integer.MIN_VALUE;
+        
+        int i =0;
+        int j=height.length-1;
+        
+        while(i<j){
+            {
+                maxArea =  Math.max(maxArea,Math.min(height[i],height[j])*(j-i));
+            }
+            if(height[i]<height[j]){
+                i++;
+            }
+            else{
+                j--;
+            }
+        }
+         return maxArea;
+    }
+  }
+
+//time:O(n)
+//space:O(1)
+//ran successfully on leetcode
+//before class did with different approach like taking 2 different array and storing all max height from left to right nd second arary woth rigth to left max height
+//3rd array in iterated and calculated the area but that was taking more space complexity with taking 2 more arrays. it was O(n) space and O(n) 
+//Approach 2 pointer
