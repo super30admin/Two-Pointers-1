@@ -1,0 +1,37 @@
+class Solution{
+	public void sortColors(int[] nums){
+		if(nums == null || nums.length == 0)
+			return;
+		
+		int left = 0;
+		int right = nums.length - 1;
+		
+		int curr = 0;
+		
+		while(curr <= right){
+			
+			if(nums[curr] == 0){
+				swap(nums, curr , left);
+				left++;
+				curr++;
+			}
+			else if(nums[curr] == 1){
+				curr++;
+			}
+			else{
+				swap(nums, curr, right);
+				right --;
+			}
+		}	
+	}
+	
+	private void swap(int[] nums, int i , int j){
+		
+		int temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
+	}
+}
+
+// TC = O(n)
+// SC = O(1)
