@@ -1,0 +1,34 @@
+class Solution {
+    public void sortColors(int[] nums) {
+        // if(nums.length==0 || nums ==null) return; --not necessary in given que
+         int start = 0;
+         int end = nums.length-1;
+         int curr = 0;
+         
+         while(curr<=end){ //this means there will be no elements left
+            if(nums[curr]==0){
+                swap(nums,start,curr); //curr swaps with start
+                curr++;
+                start++;  //because now start has 0 and its current position for 0
+            }
+            else if(nums[curr]==2){ //check if curr is 2 than place it at last
+                swap(nums,curr,end);
+                end--; //only end decrements
+            }
+            else{
+                curr++; //when 1
+            }
+         }
+    }
+    
+    private void swap(int[] nums, int i,int j){ //swaps the values of array
+       int temp=nums[i];
+       nums[i]=nums[j];
+       nums[j]=temp;
+    }
+}
+
+//time: O(n)
+//space:O(1) no extra space needed
+//ran successfully .. still facing problems in pointer need to pratice more. had to look into solns
+//Approach : 3 pointer and kepp incrementing curr and swaping when 0 or 2..in case of one only curr increments
