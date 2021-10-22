@@ -15,7 +15,7 @@ class Solution:
         while (mid <= right):
             if nums[mid] == 0:
                 nums[mid], nums[left] = nums[left], nums[mid]
-                mid += 1
+                mid += 1 # mid starts from 0 and remains greater than low
                 left += 1
             elif nums[mid] == 1:
                 mid += 1
