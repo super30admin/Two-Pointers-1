@@ -1,4 +1,4 @@
-# Leetcode 15 3-Sum
+# Leetcode 15 2-Sum
 # Time - O(N2)
 # Space - O(1)
 
