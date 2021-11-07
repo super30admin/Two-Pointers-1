@@ -1,0 +1,55 @@
+class Solution {
+    public void sortColors(int[] nums) {
+     
+        // m
+        // 2000000001
+        // l        r
+        // m
+        // 1000000002
+        // l       r    
+        //  m
+        // 1000000002
+        // l       r
+        //   m 
+        // 0100000002
+        // l      r
+        // m
+        // 2,0,2,1,1,0
+        // l         r
+        // m
+        // 0,0,2,1,1,2
+        // l       r
+        //   m  
+        // 0,0,2,1,1,2
+        //   l     r
+        //     m
+        // 0,0,2,1,1,2
+        //     l   r
+        //     m
+        // 0,0,1,1,2,2
+        //     l r
+        //       m
+        // 0,0,1,1,2,2
+        //     l r
+        //         m
+        // 0,0,1,1,2,2
+        //     l r
+        int mid=0,left=0,right = nums.length-1;
+        while(mid<=right){
+            if(nums[mid] == 2){
+                int temp = nums[mid];
+                nums[mid]=nums[right];
+                nums[right]=temp;
+                right--;
+            }else if(nums[mid] == 0){
+                int temp = nums[mid];
+                nums[mid] = nums[left];
+                nums[left] = temp;
+                mid++;
+                left++;
+            }else{
+                mid++;
+            }
+        }
+    }    
+}
