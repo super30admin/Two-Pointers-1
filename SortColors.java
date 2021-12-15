@@ -1,8 +1,9 @@
+// TC - O(n)
+// space - O(1)
+// leetcode passed - Yes
+
 public class SortColors {
 
-    // TC - o(n)
-    // space - O(1)
-    // leetcode passed - Yes
     public void sortColors(int[] nums) {
         if(nums == null || nums.length ==0) {
             return;
