@@ -1,0 +1,55 @@
+// Time Complexity : O(n^2)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :No
+
+
+// Your code here along with comments explaining your approach
+//This problem can be considered as an extension of two sum problem
+//we sort th earray  and then start exploring for sum
+//if we get some sum in the range which is bigger tgan our target, we will decrease high else we //will increase low. this is possoble becasue array is sorted.
+// we can have 3 pointers, one for the first element and other two for the range starting from //next of the first pointer index to last index, in which we find(target amount-value at p1)
+// when we find this sum we add these to pointers and the outer pointer in a list and add it to result. for unique sets, we skip the index if its value is same as previous index.
+//same goes for outer pointer, if is value is sa,e as last handled index, we skip it
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+         List<List<Integer>> result = new ArrayList<>();
+        
+        if(nums.length<3) return result;
+        
+        //Sort the array first
+        Arrays.sort(nums);
+        //starting with first element as pointer 1
+        for(int i=0; i<nums.length-2; i++){
+            // //avoiding outer dulplicacy
+            if(i!=0 &&  nums[i-1]==nums[i]) continue;
+            
+            int j = i+1;
+            int k = nums.length - 1;
+            
+            while(j<k){
+                int sum = nums[i] + nums[j] + nums[k];
+                if(sum==0){
+                    List<Integer> list = Arrays.asList(nums[i], nums[j], nums[k]);
+                    result.add(list);
+                    j++;
+                    k--;
+                    //avoiding internal dulplicacy
+                    while(j < k && nums[j-1]==nums[j]){
+                        j++;
+                    }
+                    while(j< k && nums[k]==nums[k+1]){
+                        k--;
+                    }
+                }else if(sum>0){
+                    k--;
+                }else{
+                    j++;
+                }
+            }
+            
+        }
+        return result;
+    }
+}
