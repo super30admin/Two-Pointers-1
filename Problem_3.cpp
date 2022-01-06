@@ -36,7 +36,8 @@ Area will be the lowest of the two bars multiplied by the distance between two b
 So we keep on checking which is the small bar between two bars and increment or decrement the 
 pointer according to that. If the low pointer is small as compared to the high pointer then
 it is incremented and if the high is smnall it is decremented. The reason for this is that
-we need to find the max area so we will increment only that pointer which is small in order to find a bigger bar than it. We also maintain maxarea and keep on updating it if we find larger
+we need to find the max area so we will increment only that pointer which is small in order to find a bigger bar than it. 
+We also maintain maxarea and keep on updating it if we find larger
 area than the earlier area.
 */
 
