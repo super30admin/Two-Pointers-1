@@ -1,3 +1,7 @@
+/*
+Time complexity : O(n)
+Space complexity: O(1)
+*/
 public class maxAreaContainer {
     public int maxArea(int[] height) {
         int result = 0;
