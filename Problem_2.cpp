@@ -1,5 +1,5 @@
 //Time complxity is O(n)
-//The space complexity varies from O(logn) and O(n)
+//The space complexity varies from O(1)
 
 /*Approach: We are using two pointer approach here. But for that
 we need the array to be sorted and fixing a negative number, so
