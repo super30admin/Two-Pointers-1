@@ -1,0 +1,41 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
+
+//for the 3 values we can use 3 pointers
+//we compare element at mid each time if its 0 swap itwith low..if 1..just move forward and if 2 swap with high
+//if mid==0 and we swap it with low that means we surely have zero b4 mid now, so we increse both mid and low
+class Solution {
+    public void sortColors(int[] nums) {
+        int low=0;
+        int mid = 0;
+        int high = nums.length-1;
+        
+        while(mid<=high){
+            if(nums[mid]==2){
+                swap(nums, mid, high);
+                    high--;
+                }
+                if(mid<=high && nums[mid]==0 ){
+                    swap(nums, mid, low);
+                        low++;
+                        mid++;
+                    }
+                    if(mid<=high && nums[mid]==1 ){
+                        mid++;
+                    }
+                }
+            }
+            
+        
+    
+    public void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i]=nums[j];
+        nums[j]=temp;
+    }
+}
