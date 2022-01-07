@@ -1,0 +1,36 @@
+//Brute force
+/*//tc:O(n^2)
+//sc: O(1)
+//accepted on leetcode: yes
+class Solution {
+    public int maxArea(int[] height) {
+        if (height == null || height.length == 0) return 0;
+        int max = 0;
+        for (int i=0; i<height.length - 1; i++) {
+            for (int j= i+1; j<height.length; j++) {
+                max = Math.max(max,(Math.min(height[i],height[j]))*(j-i)); //
+            }
+        }
+        return max;
+    }
+} */
+//time optimized
+//tc:O(n)
+//sc:O(1)
+class Solution {
+    public int maxArea(int[] height) {
+        if (height == null || height.length == 0) return 0;
+        int max = 0;
+        int n = height.length-1;
+        //using two pointer technique
+        int low = 0; int high = n;
+        while (low<high) {
+            max = Math.max(max,Math.min(height[high],height[low])*(high-low));  
+            if (height[low]<height[high]) { //removing lower constraint
+                low++;
+            }
+            else high--;
+        }
+        return max;
+    }
+}
