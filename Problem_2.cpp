@@ -1,4 +1,4 @@
-//Time complxity is O(n)
+//Time complxity is O(n^2)
 //The space complexity varies from O(1)
 
 /*Approach: 
