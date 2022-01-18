@@ -1,0 +1,39 @@
+// Time Complexity : check below
+// Space Complexity :check below
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+Solution - 3 pointers for 0, 1 and 2 
+          TC - O(n) SC - O(1)
+
+class Solution {
+    public void sortColors(int[] nums) {
+        int low = 0, mid = 0, high = nums.length - 1;
+        
+        while(mid <= high)
+        {
+            if(nums[mid] == 2)
+            {
+                swap(nums, mid, high);
+                high--;
+            }
+            else if(nums[mid] == 0)
+            {
+                swap(nums, mid, low);
+                low++;
+                mid++;
+            }
+            else
+            {
+                mid++;
+            }
+        }
+    }
+    
+    public void swap(int[] nums, int a, int b)
+    {
+        int t = nums[a];
+        nums[a] = nums[b];
+        nums[b] = t;
+    }
+}
