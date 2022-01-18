@@ -10,11 +10,15 @@ class Solution:
             return []
 
         solution = []
+
         nums.sort()
+        # edge
         for i in range(len(nums)):
-            if i > 0 and nums[i] == nums[i - 1]:
+            # no outside duplicacy
+            if i > 0 and nums[i] == nums[i - 1]: # ensure i != 0
                 continue
 
+            # two pointer solution
             low = i + 1
             high = len(nums) - 1
 
@@ -25,7 +29,8 @@ class Solution:
                     low += 1
                     high -= 1
 
-                    while (low < high and nums[low] == nums[low - 1]):
+                    # no inside duplicacy
+                    while (low < high and nums[low] == nums[low - 1]):  # ensure low is always less than high
                         low += 1
                     while (low < high and nums[high] == nums[high + 1]):
                         high -= 1
