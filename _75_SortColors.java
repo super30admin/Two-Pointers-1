@@ -77,7 +77,8 @@ class Solution {
 
 // Same code as above, not using the extra space
 //Again, using three pointers, running pointer which checks the value of current element at i ,
-// nums[i] is 0 then swap to left and if its 2 swap to right, if its 1 then ignore 
+// nums[i] is 0 then swap to left and if its 2 swap to right, if its 1 then ignore
+// one thing to note is 2 will never be before running pointer i.e if we get 0 and swap it with left, we will never get 2 from left.
    public void sortColors(int[] nums) {
 
         int i = 0;
