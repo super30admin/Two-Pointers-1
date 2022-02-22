@@ -75,4 +75,38 @@ class Solution {
    }
 
 
+// Same code as above, not using the extra space
+//Again, using three pointers, running pointer which checks the value of current element at i ,
+// nums[i] is 0 then swap to left and if its 2 swap to right, if its 1 then ignore 
+   public void sortColors(int[] nums) {
+
+        int i = 0;
+        int start = 0;
+        int end = nums.length -1;
+
+        while(i<=end){
+
+            if(nums[i] == 0){
+                swap(nums, i , start);
+                i++;
+                start++;
+            }
+            else if(nums[i] == 1){
+                i++;
+            }
+            else if(nums[i] == 2){
+                swap(nums, i, end);
+                end--;
+            }
+        }
+    }
+
+    public void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+
+
 }
