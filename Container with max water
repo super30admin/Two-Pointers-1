@@ -1,0 +1,25 @@
+//TC= O(n)
+//SC = O(1)
+class Solution {
+    public int maxArea(int[] height) {
+        
+        int left = 0;
+        int right = height.length-1;
+        int maxArea = 0; 
+        
+        while(left<right){
+            maxArea = Math.max(
+                maxArea,
+                (right-left)* (Math.min(height[left], height[right])) // it is Area = length x breadth
+              );
+            
+            if(height[left] < height[right]){ //we want maximum Area therefore we will usearch for max height
+                left++;
+            } else{
+                right--;
+            }
+        }
+        return maxArea;
+        
+    }
+}
