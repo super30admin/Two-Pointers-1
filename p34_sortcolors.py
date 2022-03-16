@@ -6,7 +6,6 @@ Tc-O(n)
 sc-O(1)
 Leecode-yes
 """
-
 class Solution:
     def sortColors(self, nums):
         low = 0
