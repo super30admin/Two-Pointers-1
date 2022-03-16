@@ -1,0 +1,20 @@
+//Time complexity O(n)
+//leetcode tested
+
+public class MaxArea {
+    public int maxArea(int[] nums) {
+        int max=0;
+        int low = 0;
+        int high = nums.length-1;
+        int mult = nums.length-1;
+        while (low<high){
+            int min  = Math.min(nums[low],nums[high]);
+            int area = min * mult;
+            max = Math.max(area,max);
+            if(nums[low]>nums[high])
+                high--;
+            else low++;
+        }
+        return max;
+    }
+}
