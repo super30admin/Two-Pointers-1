@@ -10,7 +10,7 @@
 //Solving the problem using by two pointer solution
 var threeSum = function(nums) {
     let result = [];
-    nums = nums.sort();
+    nums =  nums.sort(function(a, b){return a-b});
     for(let i = 0; i<nums.length - 2; i++) {
         //Handling outside duplicacy
         if(i != 0 && nums[i] === nums[i-1]) continue;
