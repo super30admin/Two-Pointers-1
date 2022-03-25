@@ -7,6 +7,10 @@
  * @param {number[]} height
  * @return {number}
  */
+
+// Taking two pointer left and right
+// Checking the max by calculating height * length between two pointer and comparing with previous max value.
+// If new value is greater than storing new value in max.
 var maxArea = function(height) {
     let left = 0;
     let right = height.length - 1;
