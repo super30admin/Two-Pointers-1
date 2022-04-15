@@ -6,3 +6,8 @@
 
 ## Problem3 (https://leetcode.com/problems/container-with-most-water/)
 
+
+
+//problem3.java has O(n^2) time complexity and O(1) space complexity
+
+//problem3.java has O(n) time complexity and O(1) space complexity
