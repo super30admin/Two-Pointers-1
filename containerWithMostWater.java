@@ -16,6 +16,8 @@ class Solution {
             int curWater = (right - left) * Math.min(height[left], height[right]);
             maxWater = Math.max(maxWater, curWater);
             
+            // Since we're reducing the width,
+            // we should move towards the greater height to get max container size.
             if (height[left] >= height[right]) {
                 --right;    
             } else {
