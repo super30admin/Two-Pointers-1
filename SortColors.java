@@ -12,14 +12,14 @@ public class SortColors {
         int high = nums.length - 1;
 
         while(mid < high) {
+
+            // We are not incrementing mid here because
+            // the number we swapped from the high position might be 0 or 1. We don't know that yet. If we increment mid then we will lose the element
             if(nums[mid] == 2){
                 swap(nums, mid, high);
                 high--;
 
-            }
-            // if mid is swapped with low, that means next element might be 1
-            // So, lookout for it by incrementing mid
-            else if(nums[mid] == 0) {
+            }else if(nums[mid] == 0) {
                 swap(nums,mid,low);
                 low++;
                 mid++;
