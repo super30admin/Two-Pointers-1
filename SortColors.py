@@ -1,3 +1,8 @@
+# Time complexity: O(n) where n is the length of the array.
+# Space complexity: O(1).
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this : No
+
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
