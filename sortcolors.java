@@ -1,13 +1,7 @@
-import java.lang.reflect.Array;
-
 // Time Complexity : o(n)
 // Space Complexity :o(1)
 // Did this code successfully run on Leetcode : yes
 // Any problem you faced while coding this : n
-
-
-// Your code here along with comments explaining your approach
-
 
 class Solution {
     public void sortColors(int[] nums) {
@@ -26,7 +20,7 @@ class Solution {
             int i=0;
             while(count0>0)
             {
-                nums[i++]=0;
+                nums[i++]=0; //using same array to save space (inplacing)
                 count0--; //reducing the coount after filling the array with the crct element at crct position
             } 
             
