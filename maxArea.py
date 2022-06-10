@@ -1,5 +1,5 @@
-Time Complexity : O(n) at every index their is the movement of left pointer or right pointer
-Space Complexity : O(1) result is return in form of an integer
+#Time Complexity : O(n) at every index their is the movement of left pointer or right pointer
+#Space Complexity : O(1) result is return in form of an integer
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         ht= len(height)
