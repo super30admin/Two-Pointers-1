@@ -1,0 +1,28 @@
+//time - O(n)
+//space = O(1)
+//yes
+// n2 solution is possible by checking all heights comparision with all heights. optimize it to make it O(n)
+//area = height * width. height is limited by the smaller of the two towers, so maximizing the width at each point will give bigger area
+// so we move ptrs left/ right, depending on whichever is smaller as it has given the max area at that point with the max width between them.
+
+class Solution {
+    public int maxArea(int[] height) {
+       int left = 0, right = height.length -1;
+       int area =0, maxArea =-1;
+        
+        while(left <right){
+            area = Math.min(height[left], height[right]) * (right -left);
+            if(maxArea < area){
+                maxArea = area;
+            }
+            
+            if(height[left] < height[right]){
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+       return maxArea; 
+    }
+}
