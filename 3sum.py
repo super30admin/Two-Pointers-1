@@ -1,6 +1,7 @@
 #3sum problem by using the two pointers
 #Time complexity : nlogn(for sorting if used binary serach) + n2 (for using two loops)
 #Space complexity : O(1)
+#Did this code successfully run on Leetcode : Yes
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         #sorting the array 
