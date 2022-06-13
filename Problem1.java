@@ -2,7 +2,7 @@
 // Space Complexity : O(1) 
 // Did this code successfully run on Leetcode : Yes
 
-//Problem statement: https://leetcode.com/problems/sort-colors/submissions/
+//Problem statement: https://leetcode.com/problems/sort-colors/
 
 class Problem1 {
 
