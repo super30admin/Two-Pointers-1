@@ -1,13 +1,14 @@
 # 75. Sort Colors
 """
-// Time Complexity : O(n^2)
+// Time Complexity : O(n)
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode : YES
 // Any problem you faced while coding this : NO
 
-Using quick selection. keeping  first element fixed and finding minimum element from next element till last element.
-Then swapping that min and fised element.
-Logic behind this is that first all 0s will be filled at its location, then 1 and then 2.
+
+using 3 pointers. mid, low, high.
+mid will be responsible to store 1s in their respective position.
+low for 0s and high for 2s.
 
 """
 
@@ -17,23 +18,32 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        # empty array
-        if len(nums) == 0:
-            return []
+        # base
 
-        # non-empty array
-        # for array length = 1
-        if len(nums) == 1:
-            return nums
+        # logic
+        low = 0
+        mid = 0
+        high = len(nums) - 1
 
-        else:
-            for i in range(0, len(nums)):
-                m = i
-                for j in range(i, len(nums)):
-                    if nums[m] >= nums[j]:
-                        m = j
+        while (mid <= high):
 
-                # swapping
-                nums[i], nums[m] = nums[m], nums[i]
+            # checking for color 0
+            # if we encounter 0, then its should be associated with low. Threfore, swap them.
+            if nums[mid] == 0:
+                nums[low], nums[mid] = nums[mid], nums[low]
+                low += 1
+                mid += 1
 
-        return nums
+            # checking for color 1
+            # if we encounter 1, then its should be associated with mid. Threfore, no swap because we are keeping track of mid itself here.
+            elif nums[mid] == 1:
+                mid += 1
+
+            # checking for color 2
+            # if we encounter 2, then its should be associated with high. Threfore, swap them.
+            # mid is not incremented here because we do not know what value comes from high.(0 or 1)
+            elif nums[mid] == 2:
+                nums[high], nums[mid] = nums[mid], nums[high]
+                high -= 1
+
+        print(nums)
