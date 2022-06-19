@@ -4,7 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        '''// Time Complexity : O(n^2 log n)
+        '''// Time Complexity : O(n^2 + log n)
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode : yes 
 // Any problem you faced while coding this : No
