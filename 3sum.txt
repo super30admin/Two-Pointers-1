@@ -1,0 +1,87 @@
+//Time Complexity : O(n^2)
+//Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+
+
+class Solution 
+{
+    public List<List<Integer>> threeSum(int[] nums) 
+    {
+//brute
+//         List<List<Integer>> res = new ArrayList<List<Integer>>();
+//         for(int i=0;i<nums.length;i++)
+//         {
+//             for(int j=i+1;j<nums.length;j++)
+//             {
+//                 for(int k=j+1;k<nums.length;k++)
+//                 {
+//                     if(nums[i]+nums[k]+nums[j]==0)
+//                     {
+//                         List<Integer> a = new ArrayList<Integer>();
+//                         a.add(nums[i]);
+//                         a.add(nums[j]);
+//                         a.add(nums[k]);
+//                         Collections.sort(a);   
+//                         if(!res.contains(a))
+//                         {
+//                             res.add(a);
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+        
+//         return res;
+        
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        Arrays.sort(nums);
+        for(int i=0;i<=nums.length-2;i++)
+        {
+            if(i!=0 && nums[i]==nums[i-1])
+            {
+                continue;
+            }
+            if(nums[i]>0)
+            {
+                break;
+            }
+            int j = i+1;
+            int k = nums.length-1;
+            
+            while(j<k)
+            {
+                if(nums[j]+nums[k]+nums[i]==0)
+                {
+                    ArrayList<Integer> arr = new ArrayList<Integer>();
+                    arr.add(nums[i]);
+                    arr.add(nums[j]);
+                    arr.add(nums[k]);
+                    // Collections.sort(arr);
+                    // if(!res.contains(arr))
+                    // {
+                    //     res.add(arr);
+                    // }
+                    res.add(arr);
+                    j++;
+                    k--;
+                    while(j<k && nums[j]==nums[j-1])
+                    {
+                        j++;
+                    }
+                    while(j<k && nums[k]==nums[k+1])
+                    {
+                        k--;
+                    }
+                    
+                }else if(nums[j]+nums[k]+nums[i]<0)
+                {
+                    j++;
+                }else
+                {
+                    k--;
+                }
+            }
+        }
+        return res;
+    }
+}
