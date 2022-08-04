@@ -36,7 +36,7 @@ class Solution {
 //        
 //        return new ArrayList<>(set);
     	
-    	// Two pointer using HashSet based solution
+    	// HashSet based solution
     	// Time Complexity : O(n*n)
     	// Space Complexity : O(n)
 //		if (nums == null || nums.length == 0)
