@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 // Time Complexity : O(n*n)
@@ -33,6 +35,34 @@ class Solution {
 //        }
 //        
 //        return new ArrayList<>(set);
+    	
+    	// Two pointer using HashSet based solution
+    	// Time Complexity : O(n*n)
+    	// Space Complexity : O(n)
+//		if (nums == null || nums.length == 0)
+//			return new ArrayList<>();
+//
+//		int n = nums.length;
+//		HashSet<List<Integer>> set = new HashSet<>();
+//
+//		for (int i = 0; i < n - 2; i++) {
+//			int compliment = 0 - nums[i];
+//			HashSet<Integer> innerSet = new HashSet<>();
+//
+//			for (int j = i + 1; j < n; j++) {
+//				int target = compliment - nums[j];
+//
+//				if (innerSet.contains(target)) {
+//					List<Integer> list = Arrays.asList(nums[i], nums[j], target);
+//					Collections.sort(list);
+//					set.add(list);
+//				} else {
+//					innerSet.add(nums[j]);
+//				}
+//			}
+//		}
+//
+//		return new ArrayList<>(set);
         
     	// Two pointer approach
         List<List<Integer>> result = new ArrayList<>();
