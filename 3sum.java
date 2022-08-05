@@ -1,3 +1,7 @@
+// Time Complexity : O(mn)
+// Space Complexity : O(m+n)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         int n = nums.length;
