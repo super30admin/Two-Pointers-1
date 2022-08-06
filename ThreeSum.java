@@ -1,7 +1,7 @@
 
-// Time Complexity : O(n^2logn)
-// Space Complexity : O(1)
-// Did this code successfully run on Leetcode :
+// Time Complexity : O(n^2)  ==> n^2 + nlogn;
+// Space Complexity : O(1) 
+// Did this code successfully run on Leetcode;
 
 
 //******
@@ -9,6 +9,7 @@
 
 
 // Your code here along with comments explaining your approach
+
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -68,7 +69,7 @@ class Solution {
 }
 
 
-// Time Complexity : O(n^3logn)
+// Time Complexity : O(n^3)  ==> n^3 + nlogn
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode :
 // Any problem you faced while coding this :
