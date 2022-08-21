@@ -1,0 +1,35 @@
+Time Complexity = O(n logn ) + O(n^2) = O(n^2)
+Space Complexity = O(1)
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        if len(nums) == 0 or nums == None:
+            return 
+        n = len(nums)
+        Tsum = []
+        nums_s = sorted(nums)
+        for i in range(n):
+            #handle the outside duplicacy
+            if i != 0 and nums_s[i-1] == nums_s[i]:
+                continue
+            left = i + 1
+            right = n - 1
+            while left < right:
+                if nums_s[i]+ nums_s[left] + nums_s[right] == 0:
+                    Tsum.append([nums_s[i],nums_s[left],nums_s[right]])
+                    left = left + 1
+                    right = right - 1
+                    #handle the inside duplicacy
+                    while left < right and nums_s[left] == nums_s[left - 1]:
+                        left = left + 1
+                    while left < right and nums_s[right] == nums_s[right + 1]:
+                        right = right - 1
+                elif nums_s[i]+ nums_s[left] + nums_s[right] > 0:
+                    right = right - 1   
+                else:
+                    left = left + 1
+           
+        return Tsum
+                    
+                
+        
