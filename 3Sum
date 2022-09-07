@@ -1,0 +1,29 @@
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        if len(nums) < 3: return []
+        def find_triplets(target, l, triplets):
+            r = len(nums)-1
+            while l < r:
+                if nums[l]+nums[r] == target:
+                    triplets.append([-target, nums[l], nums[r]])
+                    l += 1
+                    r -= 1
+                    while l < r and nums[l] == nums[l-1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r+1]:
+                        r -= 1
+                elif nums[l] + nums[r] > target:
+                    r -= 1
+                else:
+                    l += 1
+        nums.sort()
+        triplets = []
+        for index in range(len(nums)):
+            if index > 0 and nums[index] == nums[index-1]:
+                continue
+            find_triplets(-nums[index], index+1, triplets)
+        return triplets
+    
+# Time Complexity: O(n^2)
+# Space Complexity: O(1)
+# Successfully implemented on Leetcode

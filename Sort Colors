@@ -1,0 +1,20 @@
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        r = 0
+        lp = 0
+        rp = len(nums) - 1
+        while r <= rp:
+            if nums[r] == 0:
+                nums[r], nums[lp] = nums[lp], nums[r]
+                r += 1
+                lp += 1
+            elif nums[r] == 1:
+                r += 1
+            else:
+                nums[r], nums[rp] = nums[rp], nums[r]
+                rp -= 1
+        return nums
+    
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+# Successfully implemented on Leetcode
