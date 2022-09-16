@@ -1,5 +1,5 @@
 """
-S30 FAANMG Problem #35 {Medium}
+ FAANMG Problem #35 {Medium}
 
 
 
@@ -59,7 +59,7 @@ class Solution:
  
 
 """
-S30 FAANMG Problem #35 {Medium}
+ FAANMG Problem #35 {Medium}
 
 
 15. 3Sum
@@ -141,7 +141,7 @@ class Solution:
 
 
 """
-S30 FAANMG Problem #35 {Medium}
+ FAANMG Problem #35 {Medium}
 
 
 15. 3Sum

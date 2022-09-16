@@ -1,5 +1,5 @@
 """
-S30 FAANMG Problem #36 {Medium}
+ FAANMG Problem #36 {Medium}
 
 
 11. Container With Most Water

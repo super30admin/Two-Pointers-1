@@ -1,5 +1,5 @@
 """
-S30 FAANMG Problem #34 {Medium}
+ FAANMG Problem #34 {Medium}
 
 75. Sort Colors
 
