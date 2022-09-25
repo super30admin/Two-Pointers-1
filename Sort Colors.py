@@ -13,7 +13,7 @@ class Solution:
         """
         if nums == None or len(nums) == 0:
             return 
-        def swap(nums,i,j):
+        def swap(i,j):
             temp = nums[i]
             nums[i] = nums[j]
             nums[j] = temp
@@ -22,10 +22,10 @@ class Solution:
         high= len(nums)-1
         while mid<=high:
             if nums[mid] == 2:
-                swap(nums,mid,high)
+                swap(mid,high)
                 high -= 1
             elif nums[mid] == 0:
-                swap(nums,mid,low)
+                swap(mid,low)
                 low += 1
                 mid += 1
             else:
