@@ -1,0 +1,37 @@
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        if nums==None or len(nums)==0:
+            return []
+        n=len(nums)
+        res=[]
+        nums=sorted(nums)
+        for i in range(0,len(nums)):
+            if(i>0 and nums[i]==nums[i-1]):
+                continue
+            if nums[i]>0:
+                break
+            l=i+1
+            r=n-1
+            print(l,r)
+            #if (i>0 and nums[i-1]==nums[i]):
+            while(l<r):
+                s=nums[i]+nums[l]+nums[r]
+                print(s)
+                if (s==0):
+                    print("in0")
+                    ls=[]
+                    ls.append(nums[i])
+                    ls.append(nums[l])
+                    ls.append(nums[r])
+                    res.append(ls)
+                    l=l+1
+                    r=r-1
+                    while(l<r and nums[l]==nums[l-1]):
+                        l=l+1
+                    while(l<r and nums[r]==nums[r+1]):
+                        r=r-1
+                elif (s<0):  
+                    l=l+1
+                else:
+                    r=r-1
+        return res
