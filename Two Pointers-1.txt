@@ -1,0 +1,66 @@
+All test cases passed
+Sort Colors
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        low=0
+        mid=0
+        high=len(nums)-1
+        def swap(a,b):
+            temp=nums[b]
+            nums[b]=nums[a]
+            nums[a]=temp
+        while mid<=high:
+            if nums[mid]==2:
+                swap(mid,high)
+                high=high-1
+            elif nums[mid]==0:
+                swap(mid,low)
+                low=low+1
+                mid=mid+1
+            else:
+                mid=mid+1
+3Sum
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        l=sorted(nums)
+        l1=[]
+        for i in range(0,len(l)):
+            if i!=0 and l[i]==l[i-1]:
+                continue
+            left=i+1
+            right=len(l)-1
+            while left<right:
+                sum1=l[i]+l[left]+l[right]
+                if sum1>0:
+                    right=right-1
+                elif sum1==0:
+                    if [l[i],l[left],l[right]] not in l1:
+                        l1.append([l[i],l[left],l[right]])
+                    left=left+1
+                    right=right-1
+                    while left<right and l[left]==l[left-1]:
+                        left=left+1
+                    while left<right and l[right]==l[right+1]:
+                        right=right-1
+                else:
+                    left=left+1
+        return l1
+Container With Most Water
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        low=0
+        high=len(height)-1
+        max1=-1
+        while low<high:
+            length=min(height[low],height[high])
+            breadth=high-low
+            if (length*breadth)>max1:
+                max1=length*breadth
+            if height[low]>=height[high]:
+                high=high-1
+            else:
+                low=low+1
+        return max1
