@@ -1,0 +1,64 @@
+#sort colors
+#TC:(O(n))
+#SC: O(1)
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        red, white, blue = 0, 0, len(nums)-1
+    
+        while white <= blue:
+            if nums[white] == 0:
+                nums[red], nums[white] = nums[white], nums[red]
+                white += 1
+                red += 1
+            elif nums[white] == 1:
+                white += 1
+            else:
+                nums[white], nums[blue] = nums[blue], nums[white]
+                blue -= 1
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        
+#3SUM
+#tc: O(len(nums))
+#sc: O(1)
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]: 
+        nums.sort() 
+        l=[]
+        for i in range(len(nums)):  
+            if i>0 and nums[i-1]==nums[i]:  
+                continue 
+			
+			
+            j=i+1 
+            k=len(nums)-1 
+            while j<k: 
+                s=nums[i]+nums[j]+nums[k] 
+                if s>0: 
+                    k-=1  
+                elif s<0: 
+                    j+=1  
+                else:
+                    l.append([nums[i],nums[j],nums[k]]) 
+                    j+=1 
+                    while nums[j-1]==nums[j] and j<k: 
+                        j+=1   
+        return l
+
+
+#container with most water
+#TC: O(n)
+#SC: O(1)
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        l, r, area = 0, len(height) - 1, 0
+        while l < r:
+            area = max(area, (r - l) * min(height[l], height[r]))
+            if height[l] < height[r]:
+                l = l + 1
+            else:
+                r = r - 1
+				
+        return area
+        
