@@ -1,0 +1,38 @@
+Time complexity : O(n)
+Space complexity : O(1)
+
+class Solution {
+    public int maxArea(int[] height) {
+        if(height==null || height.length==0){
+            return 0;
+        }
+        int low=0;
+        int high=height.length-1;
+        int  maxVol=Math.min(height[low],height[high])*(high-low);;
+        while(low<high){
+            int vol=Math.min(height[low],height[high])*(high-low);
+          if(vol>maxVol){
+                maxVol=vol;
+                
+            }
+                if(height[low]<=height[high]){
+                    int ele=height[low];
+                    low++;
+                    while(ele>height[low]){
+                        low++;
+                    }
+                    
+                }else{
+                    int ele=height[high];
+                    high--;
+                    while(ele>height[high]){
+                        high--;
+                    }
+                    
+                
+                
+            } 
+        }
+       return maxVol ;
+    }
+}
