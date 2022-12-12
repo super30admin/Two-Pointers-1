@@ -31,7 +31,7 @@ public class Solution {
     
     public void Swap(int i, int j, int[] nums)
     {
-        var temp = nums[i];
+        var temp = nums[j];
         nums[j] = nums[i];
         nums[i] = temp;
     }
