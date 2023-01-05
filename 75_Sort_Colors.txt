@@ -1,0 +1,44 @@
+// Time Complexity : o(n)
+// Space Complexity : o(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
+/*
+* Use three pointers.
+*    1. low ptr to point to next position where 0 should be put
+*    2. high ptr to point to next position where 2 should be put
+*    3. curr ptr to point to next position that needs to be processed
+* if curr ptr points to zero than swap with low ptr
+* if curr ptr points to 2 then swap with high ptr
+* */
+
+class Solution {
+    public void sortColors(int[] nums) {
+        int n = nums.length;
+
+        int low = 0;
+        int high = n-1;
+        int curr = 0;
+
+        while(curr<=high){
+            if(nums[curr] == 2){
+                swap(nums, curr, high);
+                high--;
+            } else if(nums[curr] == 0){
+                swap(nums, curr, low);
+                low++;
+                curr++;
+            } else {
+                curr++;
+            }
+        }
+    }
+
+    public void swap(int []nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
