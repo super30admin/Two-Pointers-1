@@ -1,0 +1,32 @@
+// Time Complexity : o(n )
+// Space Complexity : o(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
+/*
+* Use low and high pts. calculate the capacity between these two ptrs and update the result.
+* move the pts which has less value among the two
+* */
+
+
+class Solution {
+    public int maxArea(int[] nums) {
+        int low = 0;
+        int high = nums.length -1;
+        int result = 0;
+        while(low<high){
+            int capacity = Math.min(nums[low], nums[high]) * (high - low);
+            result = Math.max(result, capacity);
+
+            if(nums[low] < nums[high]){
+                low++;
+            } else {
+                high--;
+            }
+        }
+
+        return result;
+    }
+}
