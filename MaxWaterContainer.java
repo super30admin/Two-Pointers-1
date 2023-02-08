@@ -1,3 +1,7 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : None
 
 /**
  * Take two pointers left and right. Take the min of them
