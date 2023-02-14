@@ -1,7 +1,7 @@
 # Author: Naveen US
 # Titile: 3sum.
 
-# Time complexity: O(n)
+# Time complexity: O(n*n)
 # Space complexity: O(1)
 # Did the code run on leetcode: Yes
 
