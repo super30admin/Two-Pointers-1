@@ -18,20 +18,23 @@ class Problem3 {
         int high = n - 1;
         int temp = 0;
         int max =0;
+        int start =0; 
+        int end = 0;
+       
         while(low < high){
-        for(int i =0; i < n; i++){
             temp = (high -low) * Math.min(height[high],height[low]);
-            max = Math.max(temp, max);
-            if(height[low] == height[high]){
-                low++;
-                high--;
+            if(temp > max){
+                start = low; 
+                end = high; 
+                max = temp;
             }
-            else if(height[low]< height[high])  
+            if(height[low]<= height[high])  
                 low++;
             else 
                 high--;
         }
+            System.out.println(start);
+            System.out.println(end);
+            return max;
         }
-        return max;
-    }
 }
