@@ -1,6 +1,6 @@
-Sort Colors
-TC:O(n)
-Sc:)(1)
+##Sort Colors
+##TC:O(n)
+##Sc:)(1)
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
@@ -21,8 +21,8 @@ class Solution:
                 current += 1
 
 ##3Sum 
-Tc: o(n)
-sc:0(n)
+##Tc: o(n)
+##sc:0(n)
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
 # First sort the array
