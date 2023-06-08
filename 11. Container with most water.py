@@ -1,4 +1,3 @@
-#bruteforce solution
 #Time Complexity : O(N)
 #Space compleity : O(1)
 class Solution:
