@@ -1,0 +1,38 @@
+//find min max no in array
+//TC= O(n)  SC=O(1)
+public class Main
+{
+	public static void main(String[] args) {
+	    int []arr={3,4,1,0,3,2,-1,5};
+	    int[] minMax=findMinMax(arr);
+	    System.out.println(minMax[0]);
+	        System.out.println(minMax[1]);
+	}
+	
+	static int[] findMinMax(int []arr){
+	    int min=arr[0];int max=arr[0];
+	    for(int i=0;i<arr.length-1;i++){
+	        if(arr[i]>arr[i+1]){
+                max=Math.max(max,arr[i]);
+                min=Math.min(min,arr[i+1]);
+	        }else{
+	            max=Math.max(max,arr[i+1]);
+                min=Math.min(min,arr[i]);
+	        }
+	    }
+	 return new int[]{min,max};
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
