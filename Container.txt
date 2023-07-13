@@ -1,0 +1,26 @@
+class Solution {
+    /** Time Complexity - O(n)
+        Space Complexity - O(1)
+     */
+    public int maxArea(int[] height) {
+        int max = 0;
+
+        int low = 0;
+        int high = height.length -1;
+
+        while (low < high) {
+            int width = high - low;
+            int area = 0;
+            if (height[low] < height[high]) {
+                area = width*height[low];
+                low++;
+            } else {
+                area = width*height[high];
+                high--;
+            }
+            max = Math.max(max, area);
+        }
+        return max;
+    }
+}
+
