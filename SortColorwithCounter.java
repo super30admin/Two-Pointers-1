@@ -35,8 +35,6 @@ class SortColorwithCounter {
             System.out.println(nums[i]);
         }
 
-
-
     }
 
     public static void main(String[] args){
