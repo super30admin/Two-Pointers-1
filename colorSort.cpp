@@ -1,34 +1,31 @@
+//TC: O(n)
+//Sc: O(1)
+
+//Approach : use 3 pointers to positions colors 0,1,2
+//idea here is that if we encounter 2 we push it back to the right of the array and decrement right ptr
+//if we find 0 we push it to the left of array and oncrement left ptr AND mid cause they can overlap
+//if it is 1 we simly mobe our mid pointer ahead
+
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        
-        //Using Two pointers approcach fpr the same
-        //since the white isthe middle color we dont move it, just cur inceremnt 
-        //just check if its red- then swap with element @start
-        //since red is in good place move both start and cur by one
-        // check if cur is green, then swap it with last element and devrement end pointer
-        // and since you dont know what is new swapped value- keep cur at the same position
-        
-        int start=0;
-        int end=nums.size()-1;
-        int cur=0;
-     
-        while(cur<=end)
+        int left=0, right=nums.size()-1, mid=0;
+        while(mid<=right)
         {
-            if(nums[cur]==0)
-        {
-            swap(nums[cur],nums[start]);
-            cur++;
-            start++;
+                 if(nums[mid]==2)
+                 {
+                     swap(nums[mid], nums[right]);
+                     right--;
+                 }       
+                 else if(nums[mid]==0)
+                 {
+                     swap(nums[mid],nums[left]);
+                     left++;
+                     mid++;
+                 }         
+                 else{
+                     mid++;
+                 }                                                                                                                                                                                                                            
         }
-       else if(nums[cur]==2)
-        {
-            swap(nums[cur],nums[end]);
-            end--;    
-        }
-        else
-            cur++;
-        }
-        
     }
 };

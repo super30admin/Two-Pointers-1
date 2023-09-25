@@ -1,42 +1,23 @@
+//Tc: O(n)
+//Sc: O(1)
+//Approach: we use two pointers to find aear held by container, we move the pointer with smaller height
+//because if we ave tp make a decision between two container heights we know width will be certainly 
+//decreased by 1 but we always have a chance to find taller height and ultimately bigger area which is what the problem is asking
 
-/*
-idea here is to make use of two pointers one starting at the 0th index and another at the end
-calculate the current area - that would be the height of smallest container and the distance between two pointers
-move the pointer with lesser height
-parallely keep track of the maximum area along 
-*/
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-     
-        int maxx=0;
-        int i=0; 
-        int area;
-        int min1;
-        int j=height.size()-1;
-        while(i<j)
+        int left=0;
+        int right=height.size()-1;
+        int maxArea=INT_MIN;
+        while(left<right)
         {
-           if(height[i]<height[j])
-           {
-               min1=height[i];
-                 area=min1*(j-i);
-               i++;
-           }
+            maxArea=max(maxArea, min(height[left], height[right])*(right-left));
+            if(height[left]<height[right])
+                    left++;
             else
-            {
-                min1=height[j];
-                  area=min1*(j-i);
-                j--;
-            }
-          
-            
-           maxx=max(area,maxx);
+                    right--;
         }
-    return maxx;    
+        return maxArea;
     }
 };
-
-/*
-Time Complexity : O(number of containers)
-Space complexity: O(1)
-*/
