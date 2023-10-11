@@ -1,4 +1,4 @@
-package S30.exercises;
+
 
 // Time Complexity : O(n)
 // Space Complexity : O(1)
@@ -12,6 +12,7 @@ package S30.exercises;
 
 public class ContianerWithMostWater {
     public int maxArea(int[] height) {
+        if(height.length==0) return -1;
         int leftPtr = 0;
         int rightPtr = height.length-1;
         int maxArea = 0;
