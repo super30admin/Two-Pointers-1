@@ -1,0 +1,20 @@
+#time complexity: O(n)
+#space complexity: O(1)
+#did it run on leetcode: yes
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        n = len(nums)
+        if n==0: return 0
+        low,mid,high = 0,0,n-1
+        while(mid<=high):
+            if nums[mid]==0:
+                self.swap(nums,mid,low)
+                mid+=1
+                low+=1
+            elif nums[mid]==2:
+                self.swap(nums,mid,high)
+                high-=1
+            else: mid+=1
+
+    def swap(self, nums:List[int],i:int, j:int):
+        nums[i],nums[j]=nums[j],nums[i]
