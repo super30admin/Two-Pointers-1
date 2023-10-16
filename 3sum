@@ -1,0 +1,25 @@
+#time complexity: O(n^2)
+#space complexity: O(1)
+#did it run on leetcode: yes
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        n = len(nums)
+        nums.sort()
+        for i in range(n-2):
+            if i>0 and nums[i]==nums[i-1]: continue
+            l =i+1
+            r = n-1
+            while(l<r):
+                currsum = nums[i]+nums[l]+nums[r]
+                if currsum == 0:
+                    li=()
+                    li = li + (nums[i], nums[l], nums[r])
+                    result.append(li)
+                    l+=1
+                    r-=1
+                    while(l<r and nums[l]==nums[l-1]): l+=1
+                    while (l<r and nums[r]==nums[r+1]): r-=1
+                elif currsum>0: r-=1
+                else: l+=1
+        return result
