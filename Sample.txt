@@ -1,0 +1,27 @@
+Problem: Container with Most Water
+Time Complexity : O(n)
+Space Complexity : O(1)
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+Your code here along with comments explaining your approach
+We take two pointers, at end and the start. Then we calculate the area and shift the pointers accordingly.
+If the width is increasing to maximize the area we need to choose the bar which has greater height.
+
+Problem: 3 Sum
+Time Complexity : O(nlog(n) + n^2) = O(n^2)
+Space Complexity : O(1)
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+Your code here along with comments explaining your approach
+We first sort the Array, then pivoting one element we do two pointers such as in two sum.
+
+Problem: Sort Colors
+Time Complexity : O(n)
+Space Complexity : O(1)
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+Your code here along with comments explaining your approach
+We take 3 pointers l,m,r to keep track of 0,1,2 respectively and iterate to swap the values.
