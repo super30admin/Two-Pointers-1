@@ -4,6 +4,7 @@ class Solution:
             return []
         n = len(nums)
         low = 0
+        
         mid = 0
         high = n - 1
         while mid <= high:
