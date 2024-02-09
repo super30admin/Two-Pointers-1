@@ -31,12 +31,12 @@ public class ThreeSumBinarySearch {
             List<List<Integer>> resultList = new ArrayList<>();
             Arrays.sort(nums); // N logN
             for (int i = 0; i < nums.length - 2; i++) { // N^2logN
-                while (i != 0 && i < nums.length - 2 && nums[i] == nums[i - 1]) { // Removes External Duplicacy
-                    i++;
+                if (i != 0 && nums[i] == nums[i - 1]) { // Removes External Duplicacy
+                    continue;
                 }
                 for (int j = i + 1; j < nums.length - 1; j++) { // NlogN
-                    while (j != i + 1 && j < nums.length - 1 && nums[j] == nums[j - 1]) { // Removes Internal Duplicacy
-                        j++;
+                    if (j != i + 1 && nums[j] == nums[j - 1]) { // Removes Internal Duplicacy
+                        continue;
                     }
                     int left = j + 1;
                     int right = nums.length - 1;

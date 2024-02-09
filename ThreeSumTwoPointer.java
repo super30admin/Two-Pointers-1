@@ -16,8 +16,8 @@ public class ThreeSumTwoPointer {
             List<List<Integer>> resultList = new ArrayList<>();
             Arrays.sort(nums);
             for (int i = 0; i < nums.length; i++) {
-                while (i != 0 && i < nums.length && nums[i] == nums[i - 1]) { // Removes External Duplicacy
-                    i++;
+                if (i != 0 && nums[i] == nums[i - 1]) { // Removes External Duplicacy
+                    continue;
                 }
 
                 int left = i + 1;
