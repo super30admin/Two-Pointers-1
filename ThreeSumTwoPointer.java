@@ -24,23 +24,22 @@ public class ThreeSumTwoPointer {
                 int right = nums.length - 1;
 
                 while (left < right) {
-                    int target = nums[i] * (-1);
-                    int currSum = nums[left] + nums[right];
-                    if (currSum == target) {
+                    int currSum = nums[i] + nums[left] + nums[right];
+                    if (currSum == 0) {
                         List<Integer> tripletList = new ArrayList<>(Arrays.asList(nums[i], nums[left], nums[right]));
                         Collections.sort(tripletList);
                         resultList.add(tripletList);
                         left++;
                         right--;
 
-                        while (nums[left] == nums[left - 1] && left < right) { // Removes Internal Duplicacy
+                        while (left < right && nums[left] == nums[left - 1]) { // Removes Internal Duplicacy
                             left++;
                         }
 
-                        while (nums[right] == nums[right + 1] && right > left) { // Removes Internal Duplicacy
+                        while (left < right && nums[right] == nums[right + 1]) { // Removes Internal Duplicacy
                             right--;
                         }
-                    } else if (currSum < target) {
+                    } else if (currSum < 0) {
                         left++;
                     } else {
                         right--;
