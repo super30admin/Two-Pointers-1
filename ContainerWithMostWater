@@ -1,0 +1,30 @@
+
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public int maxArea(int[] height) {
+        int max=0;
+        int n = height.length;
+        int left =0;
+        int right =n-1;
+        while(left<right){
+            // area is length * width. Here length is right - left and width is the min of height.
+            int currArea = Math.min(height[left],height[right]) * (right-left);
+            // Find the max of all the areas
+            max = Math.max(max,currArea);
+
+            if(height[left]<=height[right]){
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return max;
+}
+}
