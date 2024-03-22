@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+namespace S30_Problems
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            p.ThreeSum(new int[]{ -1, 0, 1, 2, -1, -4 });
+        }
+
+        // Time Complexity: O(n)
+        // Space Complexity: O(1)
+        public int MaxArea(int[] height) {
+            int res = 0;
+            int i = 0;
+            int n = height.Length-1;
+            while(i<n){
+                res = Math.Max(res,Math.Min(height[i],height[n]) * (n-i));
+                if(height[i]<=height[n]){
+                    i++;
+                }
+                else{
+                    n--;
+                }
+            }
+            return res;
+        }
+
+        // Time Complexity: O(n)
+        // Space Complexity: O(1)
+
+        public void SortColors(int[] nums) {
+            int l = 0, m = 0, h = nums.Length-1;
+            while(m<=h){
+                if(nums[m] == 0){
+                    swap(nums, l, m);
+                    l++; m++;
+                }
+                else if(nums[m] == 2){
+                    swap(nums, h, m);
+                    h--;
+                }
+                else{
+                    m++;
+                }
+            }
+        }
+        
+        private void swap(int[] nums, int i, int j){
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+
+        // Time Complexity: O(n^2)
+        // Space Complexity: O(1)  -- Usually sorting is always said to take O(logn) space under the hood. So I believe whenever we are sorting we should consider o(logn) space.
+        public IList<IList<int>> ThreeSum(int[] nums) {
+            IList<IList<int>> res = new List<IList<int>>();
+            Array.Sort(nums);
+            for(int i = 0; i<nums.Length-2; i++){
+                if(nums[i]>0) break;
+                if(i!=0 && nums[i] == nums[i-1]) continue;
+                int l = i+1, h = nums.Length-1;
+                while(l<h){
+                    int curr = nums[i]+nums[l]+nums[h];
+                    if(curr == 0){
+                        res.Add(new List<int>(){nums[i],nums[l],nums[h]});
+                        l++; h--;
+                        while(l<h && nums[l]==nums[l-1]) l++;
+                        while(l<h && nums[h]==nums[h+1]) h--;
+                    }
+                    else if(curr>0) h--;
+                    else l++;   
+                }
+            }
+            return res;
+        }
+    }
+}
