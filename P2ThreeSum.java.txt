@@ -1,0 +1,55 @@
+// Time Complexity : O(n^2)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+// Sort the array with library function
+// take three pointers i , j and k 
+// i will be the starting index of the array, j = 1 and k = n-1
+// initially we cosider i at 0 run the rest from j and k as finding two sum of the array finding the sum  = 0-nums[i]
+// if we find the sum we add the list to the array and increase j till j != nums[j] and decrease k till k != nums[k]
+// repeat the process
+
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        int n = nums.length;
+        List<List<Integer>> list = new ArrayList<List<Integer>>();
+        Arrays.sort(nums);
+        for(int i=0;i<n-2;i++){
+            if(i!= 0 && nums[i] == nums[i-1]) continue;
+            int reqSum = 0 - nums[i];
+            int j = i+1;
+            int k = n-1;
+            while(j<k){
+                int currentSum = nums[j] + nums[k];
+                int x = nums[j];
+                int y = nums[k];
+                if(currentSum == reqSum){
+                    List<Integer> temp = new ArrayList<>();
+                    temp.add(nums[i]);
+                    temp.add(nums[j]);
+                    temp.add(nums[k]);
+                    list.add(temp);
+                    while(nums[j] == x && j<k){
+                        j++;
+                    }
+                    while(nums[k] == y && j<k){
+                        k--;
+                    }
+                }else if(currentSum < reqSum){
+                    while(nums[j] == x && j<k){
+                        j++;
+                    }
+                }else{
+                    while(nums[k] == y && j<k){
+                        k--;
+                    }
+                }
+            }
+        }
+        return list;
+    }
+}

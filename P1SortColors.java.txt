@@ -1,0 +1,41 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+// Use three pointers i, j and k. Start i with 0 j with 1 and k with n-1 
+// check if nums[j]== 0 swapt it with i and in increase i. if is nums[j] ==2 swap it with k and decrease k by 1;
+// if nums[i] > nums[j] and nums[j] == 1 swap 
+// repeat the process  
+
+class Solution {
+    private void swap(int[] nums,int i,int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+    public void sortColors(int[] nums) {
+        int i=0,j=1,k=nums.length-1;
+        while(j<=k){
+            //System.out.println("i : "+ i + "j : "+ j + " k :" +k);
+            if(nums[i]==0){
+                i++;
+                j++;
+            }else if(nums[j]==0){
+                swap(nums, i, j);
+                if(nums[j]==nums[i]) j++;
+                i++;
+            }else if(nums[j] == 2){
+                swap(nums, j, k);
+                k--;
+            }else if(nums[j]==1 && nums[i]>nums[j]){
+                //System.out.println(" i is greater ");
+                swap(nums, i, j);
+            }else{
+                j++;
+            }
+        }
+    }
+}

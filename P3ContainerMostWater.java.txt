@@ -1,0 +1,25 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+// Use 2 pointer from 0 to n-1
+// Consider this like calculating the area of rectangle l x b
+// calculate minimum height between i and j that will be our length l and the difference between the indices j-1 will be out breadth b
+
+class Solution {
+    public int maxArea(int[] height) {
+        int i = 0;
+        int j = height.length-1;
+        int result = 0;
+        while(i<j){
+            int min = Math.min(height[i], height[j]);
+            result = Math.max(min*(j-i), result);
+            while(i<j && height[i]<=min) i++;
+            while(i<j && height[j]<=min) j--;
+        }
+        return result;
+    }
+}
