@@ -1,0 +1,21 @@
+//Time Complexity: O(n): Two pointer technique
+//Space: O(1)
+class Solution {
+    public int maxArea(int[] height) {
+        int maxArea=Integer.MIN_VALUE;
+        int left=0;
+        int right=height.length-1;
+        int minValue=Integer.MAX_VALUE;
+        int maxValue=Integer.MIN_VALUE;
+        while(left<right){
+            minValue=Math.min(height[left], height[right]);
+            maxValue=Math.max(maxValue, minValue*(right-left));
+            if(height[left]< height[right]){
+                left++;
+            }else{
+                right--;
+            }
+        }
+        return maxValue;
+    }
+}
