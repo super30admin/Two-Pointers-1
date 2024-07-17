@@ -1,0 +1,83 @@
+#Problem 1
+
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        if nums == None or len(nums) == 0:
+            return 
+        
+        low = 0
+        curr = 0
+        high = len(nums) - 1
+
+        while curr <= high:
+            if nums[curr] == 2:
+                nums[curr] = nums[high]
+                nums[high] = 2
+                high = high - 1
+            elif nums[curr] == 0:
+                nums[curr] = nums[low]
+                nums[low] = 0
+                low = low + 1
+                curr = curr + 1
+            else:
+                curr = curr + 1
+        return
+
+#Problem 2
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        if nums == None or len(nums) == 0:
+            return [[]]
+
+        ret = []
+
+        nums.sort()
+
+        for i in range(len(nums)):
+            if i != 0 and nums[i] == nums[i - 1]:
+                continue
+            if nums[i] > 0:
+                break
+            low = i + 1
+            high = len(nums) - 1
+            while low < high:
+                triplet = nums[i] + nums[low] + nums[high]
+                if triplet == 0:
+                    ret.append([nums[i], nums[low], nums[high]])
+                    high = high - 1
+                    low = low + 1
+                    while low < high and nums[low] == nums[low - 1]:
+                        low = low + 1
+                    while low < high and nums[high] == nums[high + 1]:
+                        high = high - 1
+                elif triplet < 0:
+                    low = low + 1
+                else:
+                    high = high - 1
+        
+        return ret
+
+
+#Problem 3
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        if height == None or len(height) == 0:
+            return 0
+        
+        maximum = 0
+        low = 0
+        high = len(height) - 1
+        
+        while low < high:
+            maximum = max(maximum, (min(height[low], height[high]) * (high - low)))
+            if height[low] < height[high]:
+                low = low + 1
+            else:
+                high = high - 1
+        
+        return maximum
