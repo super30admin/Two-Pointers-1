@@ -1,0 +1,22 @@
+//Time: O(n)
+//Space: O(1)
+class Solution {
+     public int maxArea(int[] height) {
+        int maxarea = 0;
+       int l=0;
+         int h=height.length-1;
+         //check if 
+         while(l<=h)
+         {
+             //find area between two heights height*width
+             maxarea = Math.max(maxarea, Math.min(height[l], height[h]) * (h - l));
+             //watever is minimum height just go away from that and check area with next height
+             if(height[l]<height[h])
+                 l++;
+             else
+                 h--;
+            
+         }
+        return maxarea;
+    }
+}

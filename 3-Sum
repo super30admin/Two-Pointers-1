@@ -1,0 +1,41 @@
+//Time: O(n^2) : outer loop until n and inner until n again
+//Space: O(n) : stored n elements in reus;lt array in worst case
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+       
+        //int =0,j=nums.length;
+        List<List<Integer>> result=new ArrayList<>();
+        if(nums.length<3 || nums==null) return result;
+         Arrays.sort(nums);
+        for(int i=0;i<nums.length-2;i++)
+        {
+            //Important : if index outer index has duplicates
+            if(i>0 && nums[i]==nums[i-1]) continue;
+            int l=i+1; int h=nums.length-1;
+            //Imp: dont do l<=h else it ll keep comparing by iteself and results wrong o/p
+            while(l<h)
+            {
+               if(nums[i]+nums[l]+nums[h]==0) 
+               {
+                   result.add(Arrays.asList(nums[i],nums[l],nums[h]));
+                       l++;
+                       h--;
+                   //incase of duplicates in inner array ie between low and high
+                   while(l<h && nums[l]==nums[l-1])
+                       l++;
+                   while(l<h && nums[h]==nums[h+1])
+                       h--;
+               }
+                else if(nums[i]+nums[l]+nums[h]>0) 
+                {
+                    h--;
+                }
+                else {
+                    l++;
+                }
+            }
+        }
+        return result;
+    }
+}
