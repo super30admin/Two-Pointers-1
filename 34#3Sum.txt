@@ -1,0 +1,44 @@
+// Time Complexity : O(n^2)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] num) {
+            
+    List<List<Integer>> res = new LinkedList<>(); 
+    
+    /* edge case */
+    if( num == null || num.length == 0)
+        return res;
+    
+    /* sort the array */
+    Arrays.sort(num);
+    
+    /* pick value from the index i and search the entire remaining array for the two values that sum to zero with value at i index */
+    for (int i = 0; i < num.length-2; i++) {
+        
+        /* if there are duplicates then go to next index i instead of finding triplets */
+        if (i == 0 || (i > 0 && num[i] != num[i-1])) {
+            /* two pointer left and right and sum to be targeted */
+            int lo = i+1, hi = num.length-1, sum = 0 - num[i];
+           /* while both pointer doesnt cross */
+            while (lo < hi) {
+                /* if value at low and right pointer equals to target then add the triplet to result */
+                if (num[lo] + num[hi] == sum) {
+                    res.add(Arrays.asList(num[i], num[lo], num[hi]));
+            /* till the value at low pointer and its next pointer is same move the low pointer to next */
+                    while (lo < hi && num[lo] == num[lo+1]) lo++;
+                    while (lo < hi && num[hi] == num[hi-1]) hi--;
+                
+                    lo++; hi--;
+                }
+                /* if the low and right pointer is sum is less than target ,then move low pointer else move right pointer */ 
+                else if (num[lo] + num[hi] < sum) lo++;
+                else hi--;
+           }
+        }
+    }
+    return res; // return result
+    }
+}

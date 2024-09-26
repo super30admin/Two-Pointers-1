@@ -1,0 +1,33 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class Solution {
+    public int maxArea(int[] height) {
+        
+        /* edge case */
+        if(height == null || height.length == 0)
+            return 0;
+        /* intialize variable */
+         int area = 0, left = 0 , right = height.length -1;
+        
+        /* while both the left and right pointer dont cross */
+        while(left < right){
+            
+            /* get min height at left or right pointer and multiply it with the difference between two pointer that is length*/
+            int temp = Math.min(height[left],height[right]) * (right - left);
+          
+            /* update area */
+            area = Math.max(area, temp);
+            
+            /* move the pointer which has less height */
+            if(height[left] < height[right])
+                left = left +1;
+            else
+                right = right -1;
+        }
+        
+        return area; /* return max area */
+    }
+}
