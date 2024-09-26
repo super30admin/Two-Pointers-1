@@ -1,0 +1,22 @@
+class Solution {
+    public int maxArea(int[] height) {
+       
+          //Time Complexity is O(n)
+        //Space complexity   is O(1)
+        //Take the low pointer at the first index and high at the last index of the               array. 2) Get the minimum of the low and high values.(because we need to find           the area and cannot take the maximum of the the two.).3) Multiply this minimum           value with the width(which is high-low) to get the area.4) Compare this area             with the previosuly calculated area and get the max area.5) If the minimum              value that you get is the low value then, increment the low by 1(might get a            maximum area with the next low value) else decrement the high by 1.
+        if(height == null || height.length == 0)
+            return 0;
+        
+        int low =0;
+        int high = height.length-1;
+        int maxArea = 0;
+        while(low<high){
+            maxArea = Math.max(maxArea,Math.min(height[low],height[high]) * (high-low));
+            if(height[low] < height[high])
+                low++;
+                else
+                    high--;
+        }
+       return maxArea; 
+    }
+}
