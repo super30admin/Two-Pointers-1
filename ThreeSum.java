@@ -74,5 +74,12 @@ public class ThreeSum {
 
         return result;
     }
+
+    public static void main(String[] args) {
+        ThreeSum obj = new ThreeSum();
+        int[] nums = {1,-9,6,8,2,0,-2,1,-1};
+        List<List<Integer>> result = obj.threeSum(nums);
+        System.out.println(result);
+    }
 }
 
