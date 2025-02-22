@@ -1,0 +1,23 @@
+I used two logics
+Logic 1:
+Time Complexity : O(n)
+Space Complexity : O(n)
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+
+Your code here along with comments explaining your approach in three sentences only
+I used the concept of monotonic stack for the problem. It first finds the descending order subsequence such that the numbers in the subsequence does not have any elements greater than them beyond them in the array.
+Then for each element in the subsequence, we will find the smallest index such that the element is equal to or greater than each element in the subsequence.
+Repeat the exercise by reversing the array and return the largest value produced
+
+
+Logic 2:
+Time Complexity : O(n)
+Space Complexity : O(1)
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+
+Your code here along with comments explaining your approach in three sentences only
+I used 2 pointer approach for this. Left pointer and right pointer first point at the extremes and record the area formed by these two bounds. Then we shift either of these pointers away from the minimum

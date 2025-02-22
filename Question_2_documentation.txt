@@ -1,0 +1,10 @@
+Time Complexity : O(n^2)
+Space Complexity : O(1)
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+
+Your code here along with comments explaining your approach in three sentences only
+I used 2 pointer approach for this. I sorted the array and used first pointer to fix the first element of the triad, 
+then in the remaining suffix sub array, beyond the fixed element, I used 2 pointers to find the remaining pair of elements,
+which make up the negation of the first element, so that the sum of the obtained triplet is 0.
