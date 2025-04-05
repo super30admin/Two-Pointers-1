@@ -1,0 +1,46 @@
+class Solution {
+
+    // brute force is = n3
+// Sort + TP = nlogn + n2( i+j = sceanrio, > sceanario, < scenario)to move ptrs acc + O(1)
+// Hashing = n2 + additional space required O(n)
+// Sort + BS = nlogn + n2logn
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
+        int pivot = 0;
+        List<List<Integer>> triplets = new ArrayList<>();
+        // iterate trough the main array 
+        while(pivot <= n-3){
+            int left = pivot+1;
+            int right = n-1;
+            //iterate - sub array for each pivot element
+            int target = nums[pivot] * -1; 
+            while(left < right){
+                int sum = nums[left] + nums[right];
+                if(sum == target){
+                    //List<Integer> list = new ArrayList<>(List.of(nums[pivot],nums[left],nums[right]));
+                    triplets.add(new ArrayList<>(List.of(nums[pivot],nums[left],nums[right])));
+                    while(left < right && nums[left] == nums[left+1]){
+                        left++;
+                    }
+                    while( left < right && nums[right] == nums[right-1]){
+                        right--;
+                    }
+                    left++;
+                    right--;
+                }else if( sum > target){ // (-1 ,4) 3 > 2 
+                    right--;
+                }else{
+                    left++;
+                } 
+            }
+            // at the end compare and increment pivot to eliminate duplicates
+            while(pivot <= n-3 && nums[pivot] == nums[pivot+1]){
+                pivot++;
+            }
+            pivot++;
+        }
+        return triplets;
+    }
+}

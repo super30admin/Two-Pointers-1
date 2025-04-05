@@ -1,0 +1,27 @@
+class Solution {
+    public void sortColors(int[] nums) {
+        // take two pointers @ left & right 
+        // and a 3rd pointer which will loop trought the array and based on the value iot encounters 2 or 1 or 0 we swap with eitehr left or right and loop trough the rest of the array 
+
+        int n = nums.length ;
+        int left =0;
+        int right =n-1;
+        int partition = left;
+
+        for(int i=0 ; i< n ;i++){
+            if(nums[partition] == 2){
+                nums[partition] = nums[right];
+                nums[right] = 2;
+                right--;
+            }else if (nums[partition] == 0){
+                nums[partition] = nums[left];
+                nums[left] = 0 ;
+                left++;
+                partition++;
+            }else {
+                partition++;
+            }
+        }
+
+    }
+}
