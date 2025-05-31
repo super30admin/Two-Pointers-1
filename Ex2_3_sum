@@ -1,0 +1,77 @@
+# Time Complexity : O(n^2), where n is the length of nums (due to the two-pointer traversal for each element)
+# Space Complexity : O(1) extra space (excluding the output list)
+# Did this code successfully run on Leetcode : YES
+# Any problem you faced while coding this : No
+
+
+from typing import List
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        # Two Pointer Approach
+        res = []
+        nums.sort()
+
+        for i in range(len(nums)):
+            # Skip duplicate values for i
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+
+            left = i + 1
+            right = len(nums) - 1
+
+            while left < right:
+                total = nums[i] + nums[left] + nums[right]
+
+                if total == 0:
+                    res.append([nums[i], nums[left], nums[right]])
+                    left += 1
+                    right -= 1
+                    
+                    # Skip duplicate values for left and right
+                    while left < right and nums[left] == nums[left - 1]:
+                        left += 1
+                    while left < right and nums[right] == nums[right + 1]:
+                        right -= 1
+                
+                elif total < 0:
+                    left += 1
+                else:
+                    right -= 1
+        return res
+
+# -----------------------------------------------------------------------------------------        
+        
+        # Hashing Approach 
+        # res = set()
+        # n = len(nums)
+
+        # for i in range(n):
+        #     seen = set()
+        #     for j in range(i + 1, n):
+        #         complement = -nums[i] - nums[j]
+        #         if complement in seen:
+        #             triplet = tuple(sorted([nums[i], nums[j], complement]))
+        #             res.add(triplet)
+        #         seen.add(nums[j])
+
+        # return [list(t) for t in res]
+# -----------------------------------------------------------------------------------------
+        # Naive Approach
+        # n = len(nums)
+        # res = set()  # use set to avoid duplicate triplets
+
+        # for i in range(n):
+        #     for j in range(i + 1, n):
+        #         for k in range(j + 1, n):
+        #             if nums[i] + nums[j] + nums[k] == 0:
+        #                 triplet = tuple(sorted([nums[i], nums[j], nums[k]]))
+        #                 res.add(triplet)
+
+        # return list(map(list, res))
+
+if __name__ == "__main__":
+    sol = Solution()
+    print(sol.threeSum([-1, 0, 1, 2, -1, -4]))  # Output: [[-1, -1, 2], [-1, 0, 1]]
+    print(sol.threeSum([0, 1, 1]))              # Output: []
+    print(sol.threeSum([0, 0, 0]))              # Output: [[0, 0, 0]]
