@@ -1,0 +1,34 @@
+class Solution {
+    public void sortColors(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return;
+        }
+        //low is to place 0's, next mid is for 1's(after 0's), high is for 2's(after 1's)
+        int low = 0;
+        int mid = 0;
+        int high = nums.length-1;
+        while(mid <= high){
+            //when mid index has 2, swap with high 
+            if(nums[mid] == 2){
+                swap(nums, mid, high);
+                high--;
+            }
+            //when mid index has 0, swap with low 
+            else if(nums[mid] == 0){
+                swap(nums, mid, low);
+                mid++;
+                low++;
+            }
+            //else 1
+            else{
+                mid++;
+            }
+        }
+    }
+
+    private void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}

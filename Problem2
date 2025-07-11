@@ -1,0 +1,50 @@
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if(nums == null || nums.length == 0){
+            return result;
+        }
+        //sort the array
+        Arrays.sort(nums);
+        //use two-pointers, for every elemnt, we add it low and high and see it we can get 0
+        for(int i = 0;i < nums.length; i++){
+            //to avoid duplicate sets, moving forward if we have same number
+            if(i != 0 && nums[i] == nums[i-1]){
+                continue;
+            }
+            int low = i+1;
+            int high = nums.length-1;
+            while(high > low){
+                int sum = nums[i] + nums[low] + nums[high];
+                if(sum == 0){
+                    //sum is, we got a triplet, adding it into list
+                    List<Integer> triplet = new ArrayList<>();
+                    triplet.add(nums[i]);
+                    triplet.add(nums[high]);
+                    triplet.add(nums[low]);
+                    result.add(triplet);
+                    //checking for other sets
+                    low++;
+                    high--;
+                    //to avoid duplicate sets, moving forward if we have same number
+                    while(low< high && nums[low] == nums[low-1]){
+                        low++;
+                    }
+                    //to avoid duplicate sets, skipping element if we have same number
+                    while(low< high && nums[high] == nums[high+1]){
+                        high--;
+                    }
+                }
+                //if we get sum>0, we need lower values to add
+                else if(sum > 0){
+                    high--;
+                }
+                //if sum<0, we need higher numbers
+                else{
+                    low++;
+                }
+            }
+        }
+        return result;
+    }
+}
