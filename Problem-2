@@ -1,0 +1,43 @@
+// Time Complexity : O(n^2)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : None
+
+// Sort the array
+// For each element in the array, use 2 pointers to get the triplet that adds up to 0
+// Avoid duplicate triplets by skipping duplicates
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> result = new ArrayList<>();
+        for(int i = 0; i < nums.length-2; i++) {
+            // Skip dupliates
+            if(i > 0 && nums[i-1] == nums[i])
+                continue;
+            int low = i+1;
+            int high = nums.length-1;
+            while(low < high) {
+                int sum = nums[i] + nums[low] + nums[high];
+                // If triplet is found add to result list
+                if(sum == 0) {
+                    result.add(new ArrayList<>(Arrays.asList(nums[i], nums[low], nums[high])));
+                    low++;
+                    high--;
+                    // Skipping dusplicates
+                    while(low < high && nums[low] == nums[low-1])
+                        low++;
+                    while(low < high && nums[high] == nums[high+1])
+                        high--;
+                }
+                else if(sum < 0)
+                    low++;
+                else
+                    high--;
+            }
+        }
+        return result;
+    }
+}
