@@ -1,0 +1,30 @@
+// We move 0s to the front and 2s to the end, while keeping 1s in the middle.
+// Use three pointers: low for 0s, high for 2s, and mid to scan the array.
+// Swap accordingly and only move mid forward when the current item is 0 or 1.
+
+// time o(n)
+//space o(1)
+class Solution {
+    public void sortColors(int[] nums) {
+        int low = 0, high = nums.length-1, mid = 0;
+
+        while(mid <= high){
+            if(nums[mid] == 2){
+                swap(nums, mid, high);
+                high--;
+            }else if(nums[mid] == 0){
+                swap(nums, mid, low);
+                low++;
+                mid++;
+            }else{
+                mid++;
+            }
+        }
+    }
+
+    private void swap(int[] nums, int x, int y){
+        int temp = nums[x];
+        nums[x] = nums[y];
+        nums[y] = temp;
+    }
+}
