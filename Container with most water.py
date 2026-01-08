@@ -1,17 +1,19 @@
-#time complexity -0(n) and space complexity - o(1)
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        result =0
+        l=0
+        r=len(height)-1
 
-        l= 0
-        h=len(height)-1
+        max_area=0
 
-        while l<h:
-            area = min(height[l], height[h])* (h-l)
-            result= max(result, area)
+        while l<r:
+            area=min(height[l],height[r])*(r-l)
+            max_area=max(max_area,area)
 
-            if height[l]<=height[h]:
-                l= l+1
+            if height[l]<height[r]:
+                l=l+1
             else:
-                h= h-1
-        return result
+                r=r-1
+        return max_area
+
+
+        

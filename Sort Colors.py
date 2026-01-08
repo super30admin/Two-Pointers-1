@@ -1,21 +1,21 @@
-#Time complexity - 0(n) & space complexity - o(1)
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        if nums==None or len(nums)==0:
-            return
-        n= len(nums)
-        low=0  # storing 0
-        high= n-1 #storing  2
-        mid = 0  # storing 1
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n=len(nums)
+        l=0
+        m=0
+        r=n-1
 
-        while mid<=high:
-            if nums[mid]==0:
-                nums[mid],nums[low]= nums[low], nums[mid]
-                low=low+1
-                mid=mid+1
-            elif nums[mid]==1:
-                mid = mid+1
+        while m<=r:
+            if nums[m]==2:
+                nums[r],nums[m]=nums[m],nums[r]
+                r=r-1
+            elif nums[m]==0:
+                nums[l],nums[m]=nums[m],nums[l]
+                l=l+1
+                m=m+1
             else:
-                nums[mid],nums[high]=nums[high], nums[mid]
-                high = high-1
-            
+                m=m+1
+
