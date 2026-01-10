@@ -1,6 +1,6 @@
 Problem1 (https://leetcode.com/problems/sort-colors/)
-Time Complexity :
-Space Complexity : 
+Time Complexity : O(n)
+Space Complexity : O(1)
 
 
 
