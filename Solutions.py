@@ -3,7 +3,12 @@ Time Complexity : O(n)
 Space Complexity : O(1)
 
 
-
+## we need to collect 0 at the start
+## 1 in the mid 
+## 2 in the end
+## so we can have three different pointers, check if the value is 2 replace
+## check if the value is 0, replace from low , increment pointers
+## else just increment mid
 
 class Solution(object):
     def sortColors(self, nums):
