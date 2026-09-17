@@ -1,0 +1,27 @@
+class Solution {
+    /**
+    1. Brute Force: Nested iteration-> n^2 solution
+    2. pointer approach: To eleminate nested iterations. time-> o(n), space -> o(1)
+     */
+    public int maxArea(int[] height) {
+        int left=0; 
+        int right= height.length-1;
+        int maxArea = 0;
+
+        while(left<right){
+            int h = Math.min(height[left], height[right]);
+            int width= right-left;
+            int area = h*width;
+            maxArea = Math.max(area, maxArea);
+            if(height[left]< height[right]){
+                left ++;
+            }else{
+                right--;
+            }
+
+        }
+        return maxArea;
+
+        
+    }
+}
